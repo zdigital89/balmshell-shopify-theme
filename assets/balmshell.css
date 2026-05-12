@@ -1454,3 +1454,87 @@ h3 {
     margin-bottom: 1.65rem;
   }
 }
+
+
+/* Final product frame reset */
+.product-card,
+.collection-page .product-card,
+.product-page,
+.cart-page {
+  isolation: isolate;
+}
+
+.product-card .product-visual,
+.collection-page .product-card .product-visual,
+.product-page-media,
+.feature-card .feature-photo,
+.category-card img,
+.cart-item-image {
+  position: relative !important;
+  z-index: 1 !important;
+  border: 3px solid var(--olive) !important;
+  border-radius: 8px !important;
+  box-shadow: 9px 9px 0 var(--blush) !important;
+  filter: none !important;
+  overflow: hidden !important;
+}
+
+.product-card .product-visual::before,
+.product-card .product-visual::after,
+.collection-page .product-card .product-visual::before,
+.collection-page .product-card .product-visual::after,
+.product-page-media::before,
+.product-page-media::after,
+.feature-card .feature-photo::before,
+.feature-card .feature-photo::after,
+.category-card img::before,
+.category-card img::after,
+.cart-item-image::before,
+.cart-item-image::after {
+  content: none !important;
+  display: none !important;
+}
+
+.product-card .product-visual,
+.collection-page .product-card .product-visual {
+  margin-bottom: 2.65rem !important;
+}
+
+.feature-card .feature-photo {
+  margin-bottom: 1.6rem !important;
+}
+
+.product-card .scent,
+.collection-page .product-card .scent {
+  position: relative !important;
+  z-index: 3 !important;
+  display: block !important;
+  clear: both !important;
+  margin: 0 0 0.6rem !important;
+  padding: 0 !important;
+  color: var(--blush-deep) !important;
+  background: transparent !important;
+  line-height: 1.22 !important;
+  overflow: visible !important;
+}
+
+.product-card h3,
+.collection-page .product-card h3,
+.product-card .product-note,
+.collection-page .product-card .product-note,
+.product-card .product-footer,
+.collection-page .product-card .product-footer {
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+.lip-balm-pop {
+  box-shadow: 9px 9px 0 var(--blush) !important;
+}
+
+@media (max-width: 640px) {
+  .product-card .product-visual,
+  .collection-page .product-card .product-visual {
+    margin-bottom: 2.35rem !important;
+  }
+}
