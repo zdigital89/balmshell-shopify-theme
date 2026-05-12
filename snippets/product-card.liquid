@@ -1,0 +1,21 @@
+{%- assign fallback_image = fallback | default: 'oat-coconut.png' -%}
+{%- assign is_coming_soon = false -%}
+{%- if product.tags contains 'coming-soon' or product.available == false -%}{%- assign is_coming_soon = true -%}{%- endif -%}
+<article class="product-card{% if is_coming_soon %} coming-soon-card{% endif %}">
+  <a class="product-visual product-photo" href="{{ product.url }}">
+    {%- if product.featured_image -%}
+      {{ product.featured_image | image_url: width: 900 | image_tag: loading: 'lazy', alt: product.featured_image.alt | escape }}
+    {%- else -%}
+      <img src="{{ fallback_image | asset_url }}" alt="{{ product.title | escape }}">
+    {%- endif -%}
+    {%- if is_coming_soon -%}<div class="coming-soon-overlay">Launching soon</div>{%- endif -%}
+  </a>
+  {%- if product.type != blank -%}<p class="scent">{{ product.type }}</p>{%- endif -%}
+  <h3><a href="{{ product.url }}">{{ product.title }}</a></h3>
+  <div class="product-footer"><strong>{{ product.price | money }}</strong></div>
+  {%- unless is_coming_soon -%}
+    <a class="add-button product-card-link" href="{{ product.url }}">View product</a>
+  {%- else -%}
+    <div class="launching-soon-box">Lip balms launching soon.</div>
+  {%- endunless -%}
+</article>

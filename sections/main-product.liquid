@@ -1,0 +1,30 @@
+<section class="section product-page">
+  <div class="product-page-grid">
+    <div class="product-page-media product-visual product-photo">
+      {%- if product.featured_image -%}{{ product.featured_image | image_url: width: 1200 | image_tag: loading: 'eager', alt: product.featured_image.alt | escape }}{%- else -%}<img src="{{ 'oat-coconut.png' | asset_url }}" alt="{{ product.title | escape }}">{%- endif -%}
+    </div>
+    <div class="product-page-copy">
+      <p class="eyebrow">{{ product.type | default: 'Balmshell Beauty' }}</p>
+      <h1>{{ product.title }}</h1>
+      <div class="product-description">{{ product.description }}</div>
+      <p class="product-price">{{ product.price | money }}</p>
+      {%- form 'product', product, class: 'product-order-form' -%}
+        {%- unless product.has_only_default_variant -%}
+          <label class="order-label" for="product-variant-{{ product.id }}">Style</label>
+          <select id="product-variant-{{ product.id }}" class="order-style" name="id">
+            {%- for variant in product.variants -%}
+              <option value="{{ variant.id }}"{% unless variant.available %} disabled{% endunless %}>{{ variant.title }}{% unless variant.available %} - Sold out{% endunless %}</option>
+            {%- endfor -%}
+          </select>
+        {%- else -%}
+          <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+        {%- endunless -%}
+        <label class="order-label" for="product-quantity-{{ product.id }}">Quantity</label>
+        <input id="product-quantity-{{ product.id }}" class="order-qty" type="number" name="quantity" min="1" value="1">
+        <button class="button button-primary" type="submit" {% unless product.available %}disabled{% endunless %}>{%- if product.available -%}Add to Cart{%- else -%}Sold Out{%- endif -%}</button>
+      {%- endform -%}
+      <p class="order-fineprint">Lotion bars soften with heat, so store them in a cool space and keep tins away from direct sun.</p>
+    </div>
+  </div>
+</section>
+{% schema %}{"name":"Main product","settings":[]}{% endschema %}

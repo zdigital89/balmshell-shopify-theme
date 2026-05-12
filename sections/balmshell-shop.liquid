@@ -1,0 +1,103 @@
+<section class="hero-section" aria-labelledby="hero-title">
+  <div class="hero-copy">
+    <p class="eyebrow">handmade body care with gloss-girl confidence</p>
+    <h1 id="hero-title">soft skin. glossy glow. bold balm energy.</h1>
+    <p class="hero-subtext">Handmade soaps, shimmer lotion bars, and lip balms made to keep your skin cute, smooth, and glowing.</p>
+    <div class="hero-actions">
+      <a class="button button-primary" href="{{ routes.all_products_collection_url }}">Shop Balmshell</a>
+      <a class="button button-secondary" href="#about">Meet the Brand</a>
+    </div>
+  </div>
+  <div class="hero-visual" aria-label="Balmshell Beauty product collage">
+    <div class="sticker-frame hero-logo"><img src="{{ 'balmshell-logo.png' | asset_url }}" alt=""></div>
+    <img class="hero-product-image" src="{{ 'hero-shimmer-balm.png' | asset_url }}" alt="Kiss My Balm shimmer lotion balm tin with flower">
+    <span class="spark spark-one" aria-hidden="true"></span>
+    <span class="spark spark-two" aria-hidden="true"></span>
+  </div>
+</section>
+
+<section class="ticker" aria-label="Brand notes">
+  <span>Shimmer</span><span>buttery soft</span><span>blush kissed</span><span>handmade batches</span>
+</section>
+
+<section class="section featured" id="shop" aria-labelledby="featured-title">
+  <div class="section-heading"><p class="eyebrow">featured products</p><h2 id="featured-title">the glow lineup</h2></div>
+  <div class="feature-grid">
+    <a class="feature-card soap-card" href="/collections/soaps">
+      <div class="feature-photo soap-feature-photo"><img src="{{ 'rose-soap.png' | asset_url }}" alt="Rosy soap with real flowers"></div>
+      <h3>Soaps</h3><p>Creamy bars poured in tiny batches for a fresh, soft-skin reset.</p>
+    </a>
+    <a class="feature-card shimmer-card" href="/collections/shimmer-lotion-bars">
+      <div class="feature-photo shimmer-feature-photo"><img src="{{ 'bronze-balm-v2.png' | asset_url }}" alt="Bronze Kiss My Balm shimmer lotion bar"></div>
+      <h3>Shimmer Lotion Bars</h3><p>Melty moisture with a soft body-glow finish for shoulders, legs, and collarbones.</p>
+    </a>
+    <a class="feature-card balm-card coming-soon-card" href="/collections/lip-balms">
+      <div class="mini-product balm-tin" aria-hidden="true"></div><div class="coming-soon-overlay" aria-hidden="true">Coming soon</div>
+      <h3>Lip Balm</h3><p>Glossy comfort with cute scents and pocket-ready balm energy.</p>
+    </a>
+  </div>
+</section>
+
+<section class="vibe-section" id="vibe" aria-labelledby="vibe-title">
+  <div class="vibe-art sticker-frame"><img src="{{ 'oat-coconut.png' | asset_url }}" alt="Oat and coconut body care ingredients"></div>
+  <div class="vibe-copy">
+    <p class="eyebrow">brand vibe</p><h2 id="vibe-title">clean beauty, but make it bold.</h2>
+    <p>Balmshell is soft skin with a loud outfit: creamy formulas, glossy highlights, bright scents, and a handmade feel that never gets boring.</p>
+    <div class="vibe-tags" aria-label="Balmshell Beauty traits"><span>cute</span><span>smooth</span><span>glowy</span><span>confident</span></div>
+  </div>
+</section>
+
+<section class="section bestsellers" id="bestsellers" aria-labelledby="bestsellers-title">
+  <div class="section-heading"><p class="eyebrow">best sellers</p><h2 id="bestsellers-title">balm drops to bag first</h2></div>
+  <div class="product-grid">
+    <article class="product-card soft-bloom-card">
+      <a class="product-visual product-photo soft-bloom-photo" href="/products/soft-bloom-skin-rosy-glow-soap-bar-copy"><img src="{{ 'soft-bloom-skin.jpg' | asset_url }}" alt="Rosy Glow Soap Bar"><div class="ingredient-overlay"><strong>Ingredients</strong><p>Triple Butter Soap Base (Mango Butter, Shea Butter, Cocoa Butter), Blossom Blossom Essential Oil, Rose Mica Organic Powder.</p></div></a>
+      <p class="scent">Rosy Glow Soap Bar</p><h3>Soft Bloom Skin</h3><p class="product-note">Creamy triple butter soap gently cleanses sensitive skin with a soft floral touch.</p>
+      <div class="product-footer"><strong>$9</strong><a class="add-button" href="/products/soft-bloom-skin-rosy-glow-soap-bar-copy">Purchase</a></div>
+    </article>
+    <article class="product-card kiss-balm-card">
+      <a class="product-visual product-photo kiss-balm-photo" href="/products/kiss-my-balm-shimmer-bronzer-lotion-bar"><img src="{{ 'kiss-my-balm-closeup.jpg' | asset_url }}" alt="Close-up of Bronze Kiss My Balm shimmer lotion bar"><div class="ingredient-overlay"><strong>Ingredients</strong><p>Shea Butter, Coconut Oil, Beeswax, Natural Scent, Gold Mica Powder, Bronzer Mica Powder.</p></div></a>
+      <p class="scent">bronze shimmer + all natural lotion bar</p><h3>Kiss My Balm</h3><p class="seller-badge">#1 Seller</p><p class="product-note">Melty moisture with a soft golden glow made for sunny days, bronzed skin, and glossy summer moments.</p>
+      <div class="product-footer"><strong>$12</strong><a class="add-button" href="/products/kiss-my-balm-shimmer-bronzer-lotion-bar">Purchase</a></div>
+    </article>
+    <article class="product-card coming-soon-card">
+      <div class="product-visual lip-balm-pop" aria-hidden="true"></div><div class="coming-soon-overlay" aria-hidden="true">Coming soon</div>
+      <p class="scent">strawberry cream</p><h3>Glossy Girl Balm</h3><div class="product-footer"><strong>$7</strong><a class="add-button" href="/collections/lip-balms">Coming Soon</a></div>
+    </article>
+    <article class="product-card glow-getter-card">
+      <a class="product-visual product-photo glow-getter-photo" href="/products/glow-getter-skin-cinnamon-copy"><img src="{{ 'glow-getter-skin.jpg' | asset_url }}" alt="Cinnamon Cafe Latte Soap Bar"><div class="ingredient-overlay"><strong>Ingredients</strong><p>Triple Butter Soap Base (Mango Butter, Shea Butter, Cocoa Butter), Coffee Grounds, Cinnamon Sugar, Vanilla Essential Oil, Brown Mica Organic Powder.</p></div></a>
+      <p class="scent">Cinnamon Cafe Latte Soap Bar</p><h3>Glow-Getter Skin</h3><p class="product-note">Gently exfoliates with coffee grounds and cinnamon sugar while triple butters leave skin hydrated and polished.</p>
+      <div class="product-footer"><strong>$9</strong><a class="add-button" href="/products/glow-getter-skin-cinnamon-copy">Purchase</a></div>
+    </article>
+  </div>
+</section>
+
+<section class="about-section" id="about" aria-labelledby="about-title">
+  <div><p class="eyebrow">about balmshell</p><h2 id="about-title">Glow made for every adventure.</h2></div>
+  <div class="about-copy">
+    <p>Created by a free-spirited Libra girl who fell in love with soft glowing skin and subtle sparkles, Balmshell Beauty started with one mission: recreate the shimmer lotion bars I loved taking on spontaneous trips, concerts, weekend adventures, and all the moments in between. I wanted natural products that were easy to travel with, made right at home, and left my skin glowing without heavy liquid lotions.</p>
+    <p>What started as a glow obsession turned into handmade lotion bars, exfoliating soap bars, and self-care essentials made with skin-loving, eco-friendly ingredients that are never tested on animals. Designed to help you glow all day and night, wash it all away with our exfoliating soap bars, reset your skin, and do it all over again.</p>
+    <p>Balmshell Beauty is for everyone who loves soft skin, natural glow, bold energy, and beauty routines with personality.</p>
+  </div>
+</section>
+
+<section class="social-section" id="social" aria-labelledby="social-title">
+  <div class="section-heading"><h2 id="social-title">Subscribe and get a discount on your next purchase.</h2></div>
+  <div class="newsletter-panel" aria-labelledby="newsletter-title">
+    <div class="newsletter-image"><img src="{{ 'oat-coconut.png' | asset_url }}" alt="Balmshell newsletter discount offer"></div>
+    {% form 'customer', class: 'newsletter-form' %}
+      <input type="hidden" name="contact[tags]" value="newsletter">
+      <p class="eyebrow">newsletter signup</p><h3 id="newsletter-title">Join the balm drop list.</h3>
+      {%- if form.posted_successfully? -%}<p class="newsletter-success">Thank you for subscribing. Watch your inbox for a discount on your next Balmshell purchase.</p>{%- endif -%}
+      {{ form.errors | default_errors }}
+      <div class="newsletter-fields">
+        <label><span>First name</span><input type="text" name="contact[first_name]" autocomplete="given-name" required></label>
+        <label><span>Last name</span><input type="text" name="contact[last_name]" autocomplete="family-name" required></label>
+        <label class="full-field"><span>Email</span><input type="email" name="contact[email]" autocomplete="email" required></label>
+      </div>
+      <label class="marketing-optin"><input type="checkbox" name="contact[accepts_marketing]" value="true"><span>Opt in to promotional marketing emails and be the first to see new Balmshell drops and discounts.</span></label>
+      <button type="submit" class="button button-primary newsletter-button">Subscribe</button>
+    {% endform %}
+  </div>
+</section>
+{% schema %}{"name":"Balmshell homepage","settings":[]}{% endschema %}

@@ -1,0 +1,10 @@
+<header class="site-header">
+  <a class="brand-mark" href="{{ routes.root_url }}" aria-label="Balmshell Beauty home"><img src="{{ 'balmshell-logo.png' | asset_url }}" alt="{{ shop.name | escape }}"></a>
+  <nav class="nav-links" aria-label="Main navigation">
+    <a href="{{ routes.all_products_collection_url }}">Shop</a>
+    <a href="{{ routes.root_url }}#about">About</a>
+    <a href="{{ routes.root_url }}#social">Newsletter</a>
+  </nav>
+  <a class="cart-pill" href="{{ routes.cart_url }}">Cart <span>{{ cart.item_count }}</span></a>
+</header>
+{% schema %}{"name":"Balmshell header","settings":[]}{% endschema %}

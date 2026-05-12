@@ -1,0 +1,17 @@
+<section class="section collection-page">
+  <div class="section-heading collection-heading-simple">
+    <p class="eyebrow">shop balmshell</p>
+    <h1>{{ collection.title | default: 'All Products' }}</h1>
+    {%- if collection.description != blank -%}<p>{{ collection.description }}</p>{%- endif -%}
+  </div>
+  <div class="product-grid">
+    {%- paginate collection.products by 24 -%}
+      {%- for product in collection.products -%}
+        {% render 'product-card', product: product, fallback: 'oat-coconut.png' %}
+      {%- else -%}
+        <p>No products are in this collection yet.</p>
+      {%- endfor -%}
+    {%- endpaginate -%}
+  </div>
+</section>
+{% schema %}{"name":"Main collection","settings":[]}{% endschema %}
