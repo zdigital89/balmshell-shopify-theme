@@ -726,12 +726,15 @@ h3 {
 
 .coming-soon-overlay {
   position: absolute;
-  inset: 0;
-  z-index: 4;
+  inset: 1rem;
+  z-index: 12;
   display: grid;
   place-items: center;
   padding: 1.25rem;
-  background: rgba(47, 60, 25, 0.86);
+  border: 3px solid var(--olive);
+  border-radius: 8px;
+  background: var(--olive);
+  box-shadow: 8px 8px 0 var(--blush);
   color: var(--cream-light);
   font-family: Fredoka, Inter, sans-serif;
   font-size: clamp(2rem, 4vw, 3.4rem);
@@ -1147,8 +1150,8 @@ h3 {
 
 .newsletter-modal {
   position: fixed;
-  inset: 0;
-  z-index: 60;
+  inset: 0 !important;
+  z-index: 9999 !important;
   display: grid;
   place-items: center;
   padding: 1rem;
@@ -1161,6 +1164,10 @@ h3 {
 .newsletter-modal.is-open {
   opacity: 1;
   pointer-events: auto;
+}
+
+body.newsletter-modal-active {
+  overflow: hidden;
 }
 
 .newsletter-modal-card {
@@ -1182,6 +1189,30 @@ h3 {
 
 .newsletter-modal-card h2 {
   font-size: clamp(2.3rem, 6vw, 4.4rem);
+}
+
+.newsletter-modal-card .promo-code {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem 0 0.35rem;
+  padding: 0.7rem 1.1rem;
+  border: 3px solid var(--olive);
+  border-radius: 999px;
+  background: var(--blush);
+  box-shadow: 0 7px 0 var(--olive);
+  color: var(--olive);
+  font-family: Fredoka, Inter, sans-serif;
+  font-size: clamp(1.65rem, 6vw, 2.4rem);
+  font-weight: 900;
+  line-height: 1;
+}
+
+.newsletter-modal-card .promo-fineprint {
+  margin-top: 0.8rem;
+  color: var(--olive-soft);
+  font-size: 0.92rem;
+  font-weight: 900;
 }
 
 .newsletter-modal-card p:last-child {
@@ -1841,7 +1872,15 @@ h3 {
 }
 
 .coming-soon-card .coming-soon-overlay {
+  inset: 1rem !important;
+  z-index: 12 !important;
   opacity: 1 !important;
   visibility: visible !important;
-  display: inline-flex !important;
+  display: grid !important;
+  transform: none !important;
+  border: 3px solid var(--olive) !important;
+  border-radius: 8px !important;
+  background: var(--olive) !important;
+  box-shadow: 8px 8px 0 var(--blush) !important;
+  color: var(--cream-light) !important;
 }
