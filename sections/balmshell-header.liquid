@@ -2,9 +2,20 @@
   <a class="brand-mark" href="{{ routes.root_url }}" aria-label="Balmshell Beauty home"><img src="{{ 'balmshell-logo.png' | asset_url }}" alt="{{ shop.name | escape }}"></a>
   <nav class="nav-links" aria-label="Main navigation">
     <a href="{{ routes.all_products_collection_url }}">Shop</a>
+    <a href="{{ routes.root_url }}#bestsellers">Best Sellers</a>
     <a href="{{ routes.root_url }}#about">About</a>
     <a href="{{ routes.root_url }}#social">Newsletter</a>
   </nav>
+  <details class="mobile-menu">
+    <summary aria-label="Open navigation"><span></span><span></span><span></span></summary>
+    <nav class="mobile-menu-panel" aria-label="Mobile navigation">
+      <a href="{{ routes.all_products_collection_url }}">Shop</a>
+      <a href="{{ routes.root_url }}#bestsellers">Best Sellers</a>
+      <a href="{{ routes.root_url }}#about">About</a>
+      <a href="{{ routes.root_url }}#social">Newsletter</a>
+      <a href="{{ routes.cart_url }}">Cart</a>
+    </nav>
+  </details>
   <a class="cart-pill" href="{{ routes.cart_url }}">Cart <span>{{ cart.item_count }}</span></a>
 </header>
 {% schema %}{"name":"Balmshell header","settings":[]}{% endschema %}

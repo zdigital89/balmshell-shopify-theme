@@ -1645,3 +1645,203 @@ h3 {
     overflow: auto;
   }
 }
+
+
+/* Mobile navigation and product card hardening */
+.mobile-menu {
+  display: none;
+  position: relative;
+  justify-self: center;
+  z-index: 40;
+}
+
+.mobile-menu summary {
+  display: grid;
+  place-items: center;
+  gap: 4px;
+  width: 48px;
+  height: 48px;
+  border: 2px solid var(--olive);
+  border-radius: 999px;
+  background: var(--cream);
+  box-shadow: 0 6px 0 var(--olive);
+  cursor: pointer;
+  list-style: none;
+}
+
+.mobile-menu summary::-webkit-details-marker {
+  display: none;
+}
+
+.mobile-menu summary span {
+  width: 20px;
+  height: 3px;
+  border-radius: 999px;
+  background: var(--olive);
+}
+
+.mobile-menu-panel {
+  position: absolute;
+  top: calc(100% + 0.85rem);
+  left: 50%;
+  display: grid;
+  min-width: 210px;
+  padding: 0.8rem;
+  border: 2px solid var(--olive);
+  border-radius: 8px;
+  background: var(--cream-light);
+  box-shadow: 8px 8px 0 var(--blush);
+  transform: translateX(-50%);
+}
+
+.mobile-menu-panel a {
+  padding: 0.75rem 0.85rem;
+  border-radius: 6px;
+  color: var(--olive);
+  font-family: Fredoka, Inter, sans-serif;
+  font-weight: 900;
+  text-align: center;
+}
+
+.mobile-menu-panel a:focus,
+.mobile-menu-panel a:hover {
+  background: rgba(236, 164, 182, 0.32);
+}
+
+.feature-card {
+  text-decoration: none;
+}
+
+@media (max-width: 980px) {
+  .site-header {
+    grid-template-columns: auto 1fr auto !important;
+  }
+
+  .mobile-menu {
+    display: block;
+  }
+
+  .nav-links {
+    display: none !important;
+  }
+
+  .product-card .product-visual,
+  .collection-page .product-card .product-visual,
+  .product-page-media,
+  .feature-card .feature-photo,
+  .category-card img,
+  .cart-item-image,
+  .lip-balm-pop {
+    border: 3px solid var(--olive) !important;
+    box-shadow: 8px 8px 0 var(--blush) !important;
+    outline: 0 !important;
+    filter: none !important;
+  }
+
+  .product-card .product-visual,
+  .collection-page .product-card .product-visual {
+    margin-bottom: 2.75rem !important;
+  }
+
+  .product-card .scent,
+  .collection-page .product-card .scent {
+    display: block !important;
+    position: relative !important;
+    z-index: 5 !important;
+    margin: 0 0 0.65rem !important;
+    color: var(--blush-deep) !important;
+  }
+
+  .coming-soon-card .coming-soon-overlay {
+    position: absolute !important;
+    top: 1.25rem !important;
+    right: 1.25rem !important;
+    z-index: 8 !important;
+    display: inline-flex !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .site-header {
+    gap: 0.7rem;
+  }
+
+  .brand-mark {
+    width: clamp(76px, 25vw, 104px);
+  }
+
+  .cart-pill {
+    min-width: 68px;
+    padding: 0.52rem 0.65rem;
+    font-size: 0.9rem;
+  }
+
+  .mobile-menu summary {
+    width: 44px;
+    height: 44px;
+  }
+
+  .mobile-menu-panel {
+    left: 50%;
+    width: min(78vw, 250px);
+  }
+
+  .product-card .product-visual,
+  .collection-page .product-card .product-visual {
+    margin-bottom: 2.85rem !important;
+  }
+}
+
+/* Final Shopify/mobile frame cleanup */
+.product-card .product-visual,
+.collection-page .product-card .product-visual,
+.product-page-media,
+.feature-card .feature-photo,
+.category-card img,
+.cart-item-image,
+.lip-balm-pop {
+  border: 3px solid var(--olive) !important;
+  box-shadow: 8px 8px 0 var(--blush) !important;
+  outline: 0 !important;
+  filter: none !important;
+}
+
+.product-card .product-visual::before,
+.product-card .product-visual::after,
+.collection-page .product-card .product-visual::before,
+.collection-page .product-card .product-visual::after,
+.product-page-media::before,
+.product-page-media::after,
+.feature-card .feature-photo::before,
+.feature-card .feature-photo::after,
+.cart-item-image::before,
+.cart-item-image::after {
+  content: none !important;
+  display: none !important;
+}
+
+.product-card .product-visual,
+.collection-page .product-card .product-visual {
+  margin-bottom: 2.9rem !important;
+}
+
+.product-card .scent,
+.collection-page .product-card .scent {
+  position: relative !important;
+  z-index: 5 !important;
+  display: block !important;
+  margin-top: 0 !important;
+  background: transparent !important;
+}
+
+.feature-card:not([href]) {
+  cursor: default;
+}
+
+.coming-soon-card .coming-soon-overlay {
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: inline-flex !important;
+}
