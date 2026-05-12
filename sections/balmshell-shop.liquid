@@ -86,9 +86,19 @@
   <div class="newsletter-panel" aria-labelledby="newsletter-title">
     <div class="newsletter-image"><img src="{{ 'oat-coconut.png' | asset_url }}" alt="Balmshell newsletter discount offer"></div>
     {% form 'customer', class: 'newsletter-form' %}
-      <input type="hidden" name="contact[tags]" value="newsletter">
+      <input type="hidden" name="contact[tags]" value="newsletter,welcome-discount">
       <p class="eyebrow">newsletter signup</p><h3 id="newsletter-title">Join the balm drop list.</h3>
-      {%- if form.posted_successfully? -%}<p class="newsletter-success">Thank you for subscribing. Watch your inbox for a discount on your next Balmshell purchase.</p>{%- endif -%}
+      {%- if form.posted_successfully? -%}
+        <p class="newsletter-success">Thank you for subscribing. Use code BALM10 for 10% off your next Balmshell purchase.</p>
+        <div class="newsletter-modal is-open" role="dialog" aria-modal="true" aria-labelledby="newsletter-thanks-title">
+          <div class="newsletter-modal-card">
+            <a class="newsletter-modal-close" href="#social" aria-label="Close newsletter thank you message">x</a>
+            <p class="eyebrow">you're on the list</p>
+            <h2 id="newsletter-thanks-title">Thank you for subscribing.</h2>
+            <p>Use code <strong>BALM10</strong> for 10% off your next Balmshell purchase. Watch your inbox for new drops, glow notes, and discounts.</p>
+          </div>
+        </div>
+      {%- endif -%}
       {{ form.errors | default_errors }}
       <div class="newsletter-fields">
         <label><span>First name</span><input type="text" name="contact[first_name]" autocomplete="given-name" required></label>

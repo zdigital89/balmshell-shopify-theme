@@ -1538,3 +1538,110 @@ h3 {
     margin-bottom: 2.35rem !important;
   }
 }
+
+
+/* Mobile polish and newsletter safety */
+.social-section,
+.newsletter-panel,
+.newsletter-form {
+  position: relative;
+  isolation: isolate;
+}
+
+.spark,
+.vibe-star {
+  pointer-events: none;
+}
+
+.social-section .spark,
+.newsletter-panel .spark,
+.newsletter-form .spark,
+.social-section .vibe-star,
+.newsletter-panel .vibe-star,
+.newsletter-form .vibe-star {
+  z-index: 0 !important;
+}
+
+.newsletter-panel > *,
+.newsletter-form > * {
+  position: relative;
+  z-index: 2;
+}
+
+.newsletter-modal {
+  z-index: 90 !important;
+}
+
+.newsletter-modal-card {
+  box-shadow: 9px 9px 0 var(--blush) !important;
+}
+
+.newsletter-modal-close {
+  text-decoration: none;
+}
+
+@media (max-width: 980px) {
+  .product-card,
+  .collection-page .product-card {
+    overflow: visible !important;
+  }
+
+  .product-card .product-visual,
+  .collection-page .product-card .product-visual,
+  .product-page-media,
+  .feature-card .feature-photo,
+  .category-card img,
+  .cart-item-image {
+    border: 3px solid var(--olive) !important;
+    box-shadow: 8px 8px 0 var(--blush) !important;
+    filter: none !important;
+    transform: none !important;
+  }
+
+  .product-card .product-visual,
+  .collection-page .product-card .product-visual {
+    margin-bottom: 2.55rem !important;
+  }
+
+  .product-card .scent,
+  .collection-page .product-card .scent {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    background: transparent !important;
+    color: var(--blush-deep) !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .spark-one {
+    left: auto !important;
+    right: 1rem !important;
+    top: 1rem !important;
+    width: 2.8rem !important;
+    height: 2.8rem !important;
+    opacity: 0.65;
+  }
+
+  .spark-two {
+    right: 1rem !important;
+    top: auto !important;
+    bottom: 1rem !important;
+    opacity: 0.55;
+  }
+
+  .social-section .spark,
+  .newsletter-panel .spark,
+  .newsletter-form .spark {
+    display: none !important;
+  }
+
+  .product-card .product-visual,
+  .collection-page .product-card .product-visual {
+    margin-bottom: 2.45rem !important;
+  }
+
+  .newsletter-modal-card {
+    max-height: calc(100vh - 2rem);
+    overflow: auto;
+  }
+}
