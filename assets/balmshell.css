@@ -1884,3 +1884,77 @@ body.newsletter-modal-active {
   box-shadow: 8px 8px 0 var(--blush) !important;
   color: var(--cream-light) !important;
 }
+
+/* Product cards: one clean frame only */
+.product-card .product-visual,
+.collection-page .product-card .product-visual,
+.product-page-media,
+.product-page-media.product-visual,
+.template-product .product-visual {
+  border: 3px solid var(--olive) !important;
+  border-radius: 8px !important;
+  box-shadow: none !important;
+  outline: 0 !important;
+  filter: none !important;
+  transform: none !important;
+  overflow: hidden !important;
+}
+
+.product-card .product-visual::before,
+.product-card .product-visual::after,
+.collection-page .product-card .product-visual::before,
+.collection-page .product-card .product-visual::after,
+.product-page-media::before,
+.product-page-media::after,
+.template-product .product-visual::before,
+.template-product .product-visual::after {
+  content: none !important;
+  display: none !important;
+}
+
+.product-card .scent,
+.collection-page .product-card .scent {
+  margin-top: 0.85rem !important;
+}
+
+.newsletter-thank-you-page {
+  min-height: 70vh;
+  display: grid;
+  place-items: center;
+}
+
+.thank-you-card {
+  width: min(100%, 760px);
+  padding: clamp(1.5rem, 5vw, 3rem);
+  border: 3px solid var(--olive);
+  border-radius: 8px;
+  background: var(--cream-light);
+  box-shadow: 9px 9px 0 var(--blush);
+}
+
+.thank-you-card h1 {
+  font-size: clamp(3rem, 8vw, 6rem);
+}
+
+.promo-code {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem 0 0.5rem;
+  padding: 0.7rem 1.1rem;
+  border: 3px solid var(--olive);
+  border-radius: 999px;
+  background: var(--blush);
+  box-shadow: 0 7px 0 var(--olive);
+  color: var(--olive);
+  font-family: Fredoka, Inter, sans-serif;
+  font-size: clamp(1.7rem, 6vw, 2.5rem);
+  font-weight: 900;
+  line-height: 1;
+}
+
+.promo-fineprint {
+  color: var(--olive-soft);
+  font-size: 0.92rem;
+  font-weight: 900;
+}

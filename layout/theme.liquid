@@ -14,23 +14,5 @@
   {% section 'balmshell-header' %}
   <main id="MainContent">{{ content_for_layout }}</main>
   {% section 'balmshell-footer' %}
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      var modal = document.querySelector('.newsletter-modal.is-open');
-      if (!modal) return;
-
-      document.body.appendChild(modal);
-      document.body.classList.add('newsletter-modal-active');
-
-      var close = modal.querySelector('.newsletter-modal-close');
-      if (close) {
-        close.addEventListener('click', function (event) {
-          event.preventDefault();
-          modal.classList.remove('is-open');
-          document.body.classList.remove('newsletter-modal-active');
-        });
-      }
-    });
-  </script>
 </body>
 </html>

@@ -1,0 +1,10 @@
+{
+  "sections": {
+    "main": {
+      "type": "newsletter-thank-you"
+    }
+  },
+  "order": [
+    "main"
+  ]
+}
