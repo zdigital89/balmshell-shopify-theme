@@ -1,6 +1,8 @@
 {%- assign fallback_image = fallback | default: 'oat-coconut.png' -%}
 {%- assign is_coming_soon = false -%}
 {%- if product.tags contains 'coming-soon' or product.available == false -%}{%- assign is_coming_soon = true -%}{%- endif -%}
+{%- assign display_title = product.title | replace: ' | Glowy Body Moisturizer', '' | replace: ' Glowy Body Moisturizer', '' | replace: ' | Handmade Floral Soap', '' | replace: ' Handmade Floral Soap', '' | replace: ' | Handmade floral soap', '' | replace: ' Handmade floral soap', '' | replace: ' | Homemade Floral Soap', '' | replace: ' Homemade Floral Soap', '' | replace: ' | homemade floral soap', '' | replace: ' homemade floral soap', '' | replace: ' - Cinnamon Café Latte Soap Bar', '' | replace: ' - Cinnamon Cafe Latte Soap Bar', '' | replace: ' Cinnamon Café Latte Soap Bar', '' | replace: ' Cinnamon Cafe Latte Soap Bar', '' | replace: ' - Cinnamon Café Latte Soap', '' | replace: ' - Cinnamon Cafe Latte Soap', '' | replace: ' Rosy Glow Soap Bar', '' -%}
+{%- assign display_type = product.type | replace: 'Glowy Body Moisturizer', '' | replace: 'Handmade Floral Soap', '' | replace: 'Handmade floral soap', '' | replace: 'Homemade Floral Soap', '' | replace: 'homemade floral soap', '' | replace: 'Cinnamon Café Latte Soap Bar', '' | replace: 'Cinnamon Cafe Latte Soap Bar', '' | replace: 'Cinnamon Café Latte Soap', '' | replace: 'Cinnamon Cafe Latte Soap', '' -%}
 <article class="product-card{% if is_coming_soon %} coming-soon-card{% endif %}">
   <a class="product-visual product-photo" href="{{ product.url }}">
     {%- if product.featured_image -%}
@@ -10,8 +12,8 @@
     {%- endif -%}
     {%- if is_coming_soon -%}<div class="coming-soon-overlay">Launching soon</div>{%- endif -%}
   </a>
-  {%- if product.type != blank -%}<p class="scent">{{ product.type }}</p>{%- endif -%}
-  <h3><a href="{{ product.url }}">{{ product.title }}</a></h3>
+  {%- if display_type != blank -%}<p class="scent">{{ display_type }}</p>{%- endif -%}
+  <h3><a href="{{ product.url }}">{{ display_title }}</a></h3>
   <div class="product-footer"><strong>{{ product.price | money }}</strong></div>
   {%- unless is_coming_soon -%}
     <a class="add-button product-card-link" href="{{ product.url }}">View product</a>

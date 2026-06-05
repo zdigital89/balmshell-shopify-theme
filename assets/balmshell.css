@@ -2042,3 +2042,35 @@ body.newsletter-modal-active {
     max-width: 12ch;
   }
 }
+
+/* Keep collection/home product card actions aligned */
+.product-grid .product-card {
+  height: 100%;
+}
+
+.collection-page .product-card,
+.product-grid .product-card {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.collection-page .product-card h3,
+.product-grid .product-card h3 {
+  min-height: 2.1em;
+}
+
+.collection-page .product-card .product-footer,
+.product-grid .product-card .product-footer {
+  margin-top: auto !important;
+}
+
+.collection-page .product-card .product-card-link {
+  margin-top: 1rem !important;
+}
+
+@media (max-width: 640px) {
+  .collection-page .product-card h3,
+  .product-grid .product-card h3 {
+    min-height: 0;
+  }
+}
