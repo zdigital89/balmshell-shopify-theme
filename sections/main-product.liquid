@@ -1,23 +1,44 @@
 <section class="section product-page">
+  {%- assign current_variant = product.selected_or_first_available_variant -%}
+  {%- assign current_image = current_variant.featured_image | default: product.featured_image -%}
   <div class="product-page-grid">
     <div class="product-page-media product-visual product-photo">
-      {%- if product.featured_image -%}{{ product.featured_image | image_url: width: 1200 | image_tag: loading: 'eager', alt: product.featured_image.alt | escape }}{%- else -%}<img src="{{ 'oat-coconut.png' | asset_url }}" alt="{{ product.title | escape }}">{%- endif -%}
+      {%- if current_image -%}
+        <img
+          id="ProductImage-{{ section.id }}"
+          src="{{ current_image | image_url: width: 1200 }}"
+          alt="{{ current_image.alt | default: product.title | escape }}"
+          loading="eager"
+        >
+      {%- else -%}
+        <img id="ProductImage-{{ section.id }}" src="{{ 'oat-coconut.png' | asset_url }}" alt="{{ product.title | escape }}">
+      {%- endif -%}
     </div>
     <div class="product-page-copy">
       <p class="eyebrow">{{ product.type | default: 'Balmshell Beauty' }}</p>
       <h1>{{ product.title }}</h1>
       <div class="product-description">{{ product.description }}</div>
-      <p class="product-price">{{ product.price | money }}</p>
+      <p class="product-price" id="ProductPrice-{{ section.id }}">{{ current_variant.price | money }}</p>
       {%- form 'product', product, class: 'product-order-form' -%}
         {%- unless product.has_only_default_variant -%}
           <label class="order-label" for="product-variant-{{ product.id }}">Style</label>
           <select id="product-variant-{{ product.id }}" class="order-style" name="id">
             {%- for variant in product.variants -%}
-              <option value="{{ variant.id }}"{% unless variant.available %} disabled{% endunless %}>{{ variant.title }}{% unless variant.available %} - Sold out{% endunless %}</option>
+              {%- assign variant_image = variant.featured_image | default: product.featured_image -%}
+              <option
+                value="{{ variant.id }}"
+                data-image="{% if variant_image %}{{ variant_image | image_url: width: 1200 }}{% endif %}"
+                data-image-alt="{{ variant_image.alt | default: product.title | escape }}"
+                data-price="{{ variant.price | money }}"
+                {% if variant == current_variant %}selected{% endif %}
+                {% unless variant.available %}disabled{% endunless %}
+              >
+                {{ variant.title }}{% unless variant.available %} - Sold out{% endunless %}
+              </option>
             {%- endfor -%}
           </select>
         {%- else -%}
-          <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+          <input type="hidden" name="id" value="{{ current_variant.id }}">
         {%- endunless -%}
         <label class="order-label" for="product-quantity-{{ product.id }}">Quantity</label>
         <input id="product-quantity-{{ product.id }}" class="order-qty" type="number" name="quantity" min="1" value="1">
@@ -26,5 +47,28 @@
       <p class="order-fineprint">Lotion bars soften with heat, so store them in a cool space and keep tins away from direct sun.</p>
     </div>
   </div>
+  <script>
+    (function () {
+      var select = document.getElementById('product-variant-{{ product.id }}');
+      var image = document.getElementById('ProductImage-{{ section.id }}');
+      var price = document.getElementById('ProductPrice-{{ section.id }}');
+
+      if (!select) return;
+
+      select.addEventListener('change', function () {
+        var option = select.options[select.selectedIndex];
+
+        if (price && option.dataset.price) {
+          price.textContent = option.dataset.price;
+        }
+
+        if (image && option.dataset.image) {
+          image.src = option.dataset.image;
+          image.removeAttribute('srcset');
+          image.alt = option.dataset.imageAlt || image.alt;
+        }
+      });
+    })();
+  </script>
 </section>
 {% schema %}{"name":"Main product","settings":[]}{% endschema %}
