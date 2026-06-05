@@ -70,12 +70,21 @@
       <p class="scent">Cinnamon Cafe Latte Soap Bar</p><h3>Glow-Getter Skin</h3><p class="product-note">Gently exfoliates with coffee grounds and cinnamon sugar while triple butters leave skin hydrated and polished.</p>
       <div class="product-footer"><strong>$9</strong><a class="add-button" href="/products/glow-getter-skin-cinnamon-copy">Purchase</a></div>
     </article>
-    <article class="product-card coming-soon-card">
-      <div class="product-visual lip-balm-pop" aria-hidden="true"></div><div class="coming-soon-overlay" aria-hidden="true">Coming soon</div>
-      <p class="scent">strawberry cream</p><h3>Glossy Girl Balm</h3><div class="product-footer"><strong>$7</strong><a class="add-button" href="/collections/lip-balms">Coming Soon</a></div>
+    <article class="product-card calendula-butter-card">
+      <div class="product-visual product-photo calendula-butter-photo" tabindex="0"><img src="{{ 'calendula-whipped-body-butter.jpg' | asset_url }}" alt="Calendula Whipped Body Butter duo"><div class="ingredient-overlay"><strong>Ingredients</strong><p>Shea Butter, Cocoa Butter, Mango Butter, Calendula Infused Oil, Jojoba Oil, Coconut Oil, Vitamin E, Custom Fragrance (Vanilla Coconut). Shimmer option includes glitter and mica powder.</p></div></div>
+      <p class="scent">Calendula Whipped Body Butter</p><h3>Whipped Calendula Body Butter</h3><p class="seller-badge">Coming Soon</p><p class="product-note">Infused for weeks, set for hours, and whipped until it feels like soft cream. Available in shimmer or clean white natural-scent.</p>
+      <div class="product-footer"><strong>New drop</strong><span class="add-button add-button-disabled">Launching Soon</span></div>
     </article>
   </div>
 </section>
+
+<aside class="calendula-promo" id="calendula-promo" aria-labelledby="calendula-promo-title" role="dialog">
+  <button class="calendula-promo-close" type="button" aria-label="Close Calendula launch promo">X</button>
+  <p class="eyebrow">calendula launch special</p>
+  <h3 id="calendula-promo-title">Free strawberry crystal lip gloss.</h3>
+  <p>Buy any Calendula Remedy Collection product and get our exclusive strawberry crystal lip gloss free. Not listed, just for this drop.</p>
+  <a class="add-button" href="/collections/soaps">Shop Calendula</a>
+</aside>
 
 <section class="about-section" id="about" aria-labelledby="about-title">
   <div><p class="eyebrow">about balmshell</p><h2 id="about-title">Glow made for every adventure.</h2></div>
@@ -108,4 +117,25 @@
     {% endform %}
   </div>
 </section>
+<script>
+  (function () {
+    var promo = document.getElementById('calendula-promo');
+    if (!promo) return;
+
+    var close = promo.querySelector('.calendula-promo-close');
+    var dismissed = window.sessionStorage && sessionStorage.getItem('balmshellCalendulaPromoDismissed');
+    if (!dismissed) {
+      window.setTimeout(function () {
+        promo.classList.add('is-visible');
+      }, 900);
+    }
+
+    if (close) {
+      close.addEventListener('click', function () {
+        promo.classList.remove('is-visible');
+        if (window.sessionStorage) sessionStorage.setItem('balmshellCalendulaPromoDismissed', 'true');
+      });
+    }
+  })();
+</script>
 {% schema %}{"name":"Balmshell homepage","settings":[]}{% endschema %}

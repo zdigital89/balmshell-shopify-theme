@@ -1958,3 +1958,87 @@ body.newsletter-modal-active {
   font-size: 0.92rem;
   font-weight: 900;
 }
+
+.add-button-disabled {
+  cursor: default;
+  pointer-events: none;
+}
+
+.calendula-butter-card .product-note {
+  max-width: 95%;
+}
+
+.calendula-promo {
+  position: fixed;
+  right: clamp(1rem, 3vw, 2rem);
+  bottom: clamp(1rem, 3vw, 2rem);
+  z-index: 40;
+  width: min(92vw, 390px);
+  padding: 1.25rem;
+  border: 3px solid var(--olive);
+  border-radius: 8px;
+  background: var(--cream-light);
+  box-shadow: 9px 9px 0 var(--blush);
+  color: var(--olive);
+  opacity: 0;
+  transform: translateX(calc(100% + 2rem));
+  transition: opacity 240ms ease, transform 240ms ease;
+  pointer-events: none;
+}
+
+.calendula-promo.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+}
+
+.calendula-promo h3 {
+  max-width: 15ch;
+  font-size: clamp(1.85rem, 5vw, 2.75rem);
+  line-height: 0.95;
+}
+
+.calendula-promo p:not(.eyebrow) {
+  color: var(--olive-soft);
+  font-weight: 900;
+  line-height: 1.35;
+}
+
+.calendula-promo .add-button {
+  margin-top: 0.2rem;
+  border: 2px solid var(--olive);
+}
+
+.calendula-promo-close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  display: grid;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border: 2px solid var(--olive);
+  border-radius: 50%;
+  background: var(--blush);
+  color: var(--olive);
+  font-family: Fredoka, Inter, sans-serif;
+  font-size: 1rem;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+@media (max-width: 640px) {
+  .calendula-promo {
+    right: 1rem;
+    left: 1rem;
+    bottom: 1rem;
+    width: auto;
+    max-height: calc(100vh - 2rem);
+    overflow: auto;
+    padding: 1rem;
+  }
+
+  .calendula-promo h3 {
+    max-width: 12ch;
+  }
+}
