@@ -1,7 +1,19 @@
 {%- assign fallback_image = fallback | default: 'oat-coconut.png' -%}
 {%- assign is_coming_soon = false -%}
 {%- if product.tags contains 'coming-soon' or product.available == false -%}{%- assign is_coming_soon = true -%}{%- endif -%}
-{%- assign display_title = product.title | replace: ' | Glowy Body Moisturizer', '' | replace: ' Glowy Body Moisturizer', '' | replace: ' | Handmade Floral Soap', '' | replace: ' Handmade Floral Soap', '' | replace: ' | Handmade floral soap', '' | replace: ' Handmade floral soap', '' | replace: ' | Homemade Floral Soap', '' | replace: ' Homemade Floral Soap', '' | replace: ' | homemade floral soap', '' | replace: ' homemade floral soap', '' | replace: ' - Cinnamon Café Latte Soap Bar', '' | replace: ' - Cinnamon Cafe Latte Soap Bar', '' | replace: ' Cinnamon Café Latte Soap Bar', '' | replace: ' Cinnamon Cafe Latte Soap Bar', '' | replace: ' - Cinnamon Café Latte Soap', '' | replace: ' - Cinnamon Cafe Latte Soap', '' | replace: ' Rosy Glow Soap Bar', '' -%}
+{%- assign display_title = product.title | replace: '—', ' ' | replace: '–', ' ' | replace: ' - ', ' ' | replace: ' | ', ' ' -%}
+{%- case product.handle -%}
+  {%- when 'glow-getter-skin-cinnamon-copy' -%}
+    {%- assign display_title = 'Glow-Getter Skin Soap' -%}
+  {%- when 'soft-bloom-skin-rosy-glow-soap-bar-copy' -%}
+    {%- assign display_title = 'Soft Bloom Skin Soap Bar' -%}
+  {%- when 'petal-me-softly-soap-part-of-our-calendula-collection' -%}
+    {%- assign display_title = 'Petal Me Softly Soap' -%}
+  {%- when 'kiss-my-balm-shimmer-bronzer-lotion-bar' -%}
+    {%- assign display_title = 'Kiss My Balm Lotion Bar' -%}
+  {%- when 'calendula-whipped-body-butter' -%}
+    {%- assign display_title = 'Calendula Whipped Body Butter' -%}
+{%- endcase -%}
 {%- assign display_type = product.type | replace: 'Glowy Body Moisturizer', '' | replace: 'Handmade Floral Soap', '' | replace: 'Handmade floral soap', '' | replace: 'Homemade Floral Soap', '' | replace: 'homemade floral soap', '' | replace: 'Cinnamon Café Latte Soap Bar', '' | replace: 'Cinnamon Cafe Latte Soap Bar', '' | replace: 'Cinnamon Café Latte Soap', '' | replace: 'Cinnamon Cafe Latte Soap', '' -%}
 <article class="product-card{% if is_coming_soon %} coming-soon-card{% endif %}">
   <a class="product-visual product-photo" href="{{ product.url }}">
