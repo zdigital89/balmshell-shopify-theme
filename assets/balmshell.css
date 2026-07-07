@@ -1968,16 +1968,6 @@ body.newsletter-modal-active {
   max-width: 95%;
 }
 
-.kiddos-section {
-  background: linear-gradient(180deg, var(--cream-light), var(--cream));
-}
-
-.kiddos-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 520px);
-  justify-content: center;
-}
-
 .sud-buds-slider {
   position: relative;
   aspect-ratio: 1;
@@ -2056,10 +2046,6 @@ body.newsletter-modal-active {
 }
 
 @media (max-width: 640px) {
-  .kiddos-grid {
-    grid-template-columns: 1fr;
-  }
-
   .sud-buds-controls button {
     width: 2.35rem;
     height: 2.35rem;
