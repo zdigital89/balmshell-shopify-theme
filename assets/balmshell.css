@@ -1968,6 +1968,68 @@ body.newsletter-modal-active {
   max-width: 95%;
 }
 
+.kiddos-section {
+  background: linear-gradient(180deg, var(--cream-light), var(--cream));
+}
+
+.kiddos-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 520px);
+  justify-content: center;
+}
+
+.sud-buds-slider {
+  position: relative;
+  aspect-ratio: 1;
+  background: var(--cream);
+}
+
+.sud-buds-track,
+.sud-buds-slide {
+  width: 100%;
+  height: 100%;
+}
+
+.sud-buds-slide {
+  display: none !important;
+  object-fit: cover;
+}
+
+.sud-buds-slide.is-active {
+  display: block !important;
+}
+
+.sud-buds-controls {
+  position: absolute;
+  right: 0.8rem;
+  bottom: 0.8rem;
+  z-index: 4;
+  display: flex;
+  gap: 0.45rem;
+}
+
+.sud-buds-controls button {
+  display: grid;
+  place-items: center;
+  width: 2.6rem;
+  height: 2.6rem;
+  border: 3px solid var(--olive);
+  border-radius: 50%;
+  background: var(--cream-light);
+  color: var(--olive);
+  box-shadow: 0 5px 0 var(--olive);
+  font-family: Fredoka, Inter, sans-serif;
+  font-size: 1.7rem;
+  font-weight: 900;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.sud-buds-controls button:active {
+  transform: translateY(3px);
+  box-shadow: 0 2px 0 var(--olive);
+}
+
 /* Keep collection/home product card actions aligned */
 .product-grid .product-card {
   height: 100%;
@@ -1994,6 +2056,16 @@ body.newsletter-modal-active {
 }
 
 @media (max-width: 640px) {
+  .kiddos-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sud-buds-controls button {
+    width: 2.35rem;
+    height: 2.35rem;
+    font-size: 1.45rem;
+  }
+
   .collection-page .product-card h3,
   .product-grid .product-card h3 {
     min-height: 0;

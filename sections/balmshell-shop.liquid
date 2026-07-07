@@ -78,6 +78,35 @@
   </div>
 </section>
 
+<section class="section kiddos-section" id="kiddos" aria-labelledby="kiddos-title">
+  <div class="section-heading">
+    <p class="eyebrow">balmshell kiddos</p>
+    <h2 id="kiddos-title">sud buddies for little hands.</h2>
+  </div>
+  <div class="kiddos-grid">
+    <article class="product-card kiddos-card">
+      <div class="sud-buds-slider product-visual product-photo" data-sud-slider>
+        <div class="sud-buds-track">
+          <img class="sud-buds-slide is-active" src="{{ 'sud-buds-boy-1.png' | asset_url }}" alt="Blue Sud Buddies hanging hand soap">
+          <img class="sud-buds-slide" src="{{ 'sud-buds-boy-2.png' | asset_url }}" alt="Blue Sud Buddies hanging hand soap packaging">
+          <img class="sud-buds-slide" src="{{ 'sud-buds-boy-3.png' | asset_url }}" alt="Blue Sud Buddies hanging hand soap detail">
+          <img class="sud-buds-slide" src="{{ 'sud-buds-girl-1.png' | asset_url }}" alt="Pink Sud Buddies hanging hand soap">
+          <img class="sud-buds-slide" src="{{ 'sud-buds-girl-2.png' | asset_url }}" alt="Pink Sud Buddies hanging hand soap packaging">
+          <img class="sud-buds-slide" src="{{ 'sud-buds-girl-3.png' | asset_url }}" alt="Pink Sud Buddies hanging hand soap detail">
+        </div>
+        <div class="sud-buds-controls" aria-label="Sud Buddies photos">
+          <button type="button" data-sud-prev aria-label="Previous Sud Buddies photo">‹</button>
+          <button type="button" data-sud-next aria-label="Next Sud Buddies photo">›</button>
+        </div>
+      </div>
+      <p class="scent">Kids Hanging Hand Soap</p>
+      <h3>Sud Buddies Hanging Hand Soap</h3>
+      <p class="product-note">A playful soap buddy made for little hands and happy sink routines. Available in blue and pink.</p>
+      <div class="product-footer"><strong>$20</strong><a class="add-button" href="/products/sud-buddies-hanging-hand-soap">Purchase</a></div>
+    </article>
+  </div>
+</section>
+
 <section class="about-section" id="about" aria-labelledby="about-title">
   <div><p class="eyebrow">about balmshell</p><h2 id="about-title">Glow made for every adventure.</h2></div>
   <div class="about-copy">
@@ -109,4 +138,24 @@
     {% endform %}
   </div>
 </section>
+<script>
+  (function () {
+    document.querySelectorAll('[data-sud-slider]').forEach(function (slider) {
+      var slides = Array.prototype.slice.call(slider.querySelectorAll('.sud-buds-slide'));
+      var previous = slider.querySelector('[data-sud-prev]');
+      var next = slider.querySelector('[data-sud-next]');
+      var index = 0;
+
+      function showSlide(nextIndex) {
+        if (!slides.length) return;
+        slides[index].classList.remove('is-active');
+        index = (nextIndex + slides.length) % slides.length;
+        slides[index].classList.add('is-active');
+      }
+
+      if (previous) previous.addEventListener('click', function () { showSlide(index - 1); });
+      if (next) next.addEventListener('click', function () { showSlide(index + 1); });
+    });
+  })();
+</script>
 {% schema %}{"name":"Balmshell homepage","settings":[]}{% endschema %}
