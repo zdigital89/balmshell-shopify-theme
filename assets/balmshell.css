@@ -623,13 +623,15 @@ h3 {
 }
 
 .soap-card,
-.shimmer-card {
+.shimmer-card,
+.balm-card {
   justify-content: flex-start;
   gap: 0.75rem;
 }
 
 .soap-feature-photo,
-.shimmer-feature-photo {
+.shimmer-feature-photo,
+.balm-feature-photo {
   position: relative;
   top: auto;
   right: auto;
