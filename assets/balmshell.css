@@ -1968,6 +1968,28 @@ body.newsletter-modal-active {
   max-width: 95%;
 }
 
+.gift-set-section {
+  padding-top: clamp(2rem, 5vw, 4rem);
+}
+
+.gift-set-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 560px);
+  justify-content: center;
+}
+
+.gift-set-card {
+  max-width: 560px;
+}
+
+.gift-set-card .product-visual {
+  aspect-ratio: 4 / 5;
+}
+
+.gift-set-card .product-note {
+  max-width: 95%;
+}
+
 .sud-buds-slider {
   position: relative;
   aspect-ratio: 1;
@@ -2046,6 +2068,14 @@ body.newsletter-modal-active {
 }
 
 @media (max-width: 640px) {
+  .gift-set-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gift-set-card {
+    max-width: none;
+  }
+
   .sud-buds-controls button {
     width: 2.35rem;
     height: 2.35rem;
