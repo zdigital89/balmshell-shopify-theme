@@ -1975,6 +1975,15 @@ body.newsletter-modal-active {
   max-width: 95%;
 }
 
+.melon-gloss-card .product-note {
+  max-width: 96%;
+}
+
+.melon-gloss-card .product-visual img {
+  transform: scale(1.14);
+  transform-origin: center;
+}
+
 .sud-buds-slider {
   position: relative;
   aspect-ratio: 1;

@@ -51,6 +51,17 @@
 <section class="section bestsellers" id="bestsellers" aria-labelledby="bestsellers-title">
   <div class="section-heading"><p class="eyebrow">best sellers</p><h2 id="bestsellers-title">balm drops to bag first</h2></div>
   <div class="product-grid">
+    {%- assign melon_kiss_product = all_products['melon-kiss-lip-gloss'] -%}
+    <article class="product-card melon-gloss-card">
+      <a class="product-visual product-photo melon-gloss-photo" href="/products/melon-kiss-lip-gloss">
+        <img src="{{ 'melon-kiss-lip-gloss.png' | asset_url }}" alt="Melon Kiss lip gloss">
+      </a>
+      <p class="scent">Watermelon Lip Gloss</p>
+      <h3>Melon Kiss Lip Gloss</h3>
+      <p class="seller-badge">New Drop</p>
+      <p class="product-note">Crystal-packed shimmer with a juicy watermelon flavor, delivering a sheer tint and dazzling gloss that outshines ordinary lip glosses.</p>
+      <div class="product-footer"><strong>{% if melon_kiss_product != blank %}{{ melon_kiss_product.price | money }}{% else %}Shop now{% endif %}</strong><a class="add-button" href="/products/melon-kiss-lip-gloss">Purchase</a></div>
+    </article>
     <article class="product-card kiddos-card">
       <div class="sud-buds-slider product-visual product-photo" data-sud-slider>
         <div class="sud-buds-track">
