@@ -23,6 +23,8 @@
     {%- assign display_title = 'Lavender Coconut Triple Butter Soap' -%}
   {%- when 'august-challenge-lavender-coconut-triple-butter-soap' -%}
     {%- assign display_title = 'Lavender Coconut Triple Butter Soap' -%}
+  {%- when 'lavender-coconut-soap-limited-edition' -%}
+    {%- assign display_title = 'Lavender Coconut Triple Butter Soap' -%}
 {%- endcase -%}
 {%- assign display_type = product.type | replace: 'Glowy Body Moisturizer', '' | replace: 'Handmade Floral Soap', '' | replace: 'Handmade floral soap', '' | replace: 'Homemade Floral Soap', '' | replace: 'homemade floral soap', '' | replace: 'Cinnamon Café Latte Soap Bar', '' | replace: 'Cinnamon Cafe Latte Soap Bar', '' | replace: 'Cinnamon Café Latte Soap', '' | replace: 'Cinnamon Cafe Latte Soap', '' -%}
 <article class="product-card{% if is_coming_soon %} coming-soon-card{% endif %}">

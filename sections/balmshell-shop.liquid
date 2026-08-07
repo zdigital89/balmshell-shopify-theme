@@ -55,6 +55,9 @@
     {%- if lavender_coconut_product == blank -%}
       {%- assign lavender_coconut_product = all_products['august-challenge-lavender-coconut-triple-butter-soap'] -%}
     {%- endif -%}
+    {%- if lavender_coconut_product == blank -%}
+      {%- assign lavender_coconut_product = all_products['lavender-coconut-soap-limited-edition'] -%}
+    {%- endif -%}
     <article class="product-card lavender-coconut-card">
       <a class="product-visual product-photo lavender-coconut-photo" href="{% if lavender_coconut_product != blank %}{{ lavender_coconut_product.url }}{% else %}{{ routes.all_products_collection_url }}{% endif %}">
         <img src="{{ 'lavender-coconut-soap.jpg' | asset_url }}" alt="Lavender Coconut Triple Butter Soap">
