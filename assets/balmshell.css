@@ -731,6 +731,10 @@ h3 {
   cursor: default;
 }
 
+.sold-out-card {
+  cursor: default;
+}
+
 .coming-soon-overlay {
   position: absolute;
   inset: 1rem;
@@ -758,6 +762,50 @@ h3 {
 .coming-soon-card:focus-within .coming-soon-overlay {
   opacity: 1;
   transform: translateY(0);
+}
+
+.sold-out-overlay {
+  position: absolute;
+  inset: 1rem;
+  z-index: 13;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 0.25rem;
+  padding: 1rem;
+  border: 3px solid var(--cream-light);
+  border-radius: 8px;
+  background: rgba(47, 60, 25, 0.88);
+  box-shadow: 8px 8px 0 var(--blush);
+  color: var(--cream-light);
+  font-family: Fredoka, Inter, sans-serif;
+  text-align: center;
+  opacity: 1;
+  transition: background 200ms ease, transform 200ms ease;
+}
+
+.sold-out-overlay strong {
+  color: var(--cream-light);
+  font-size: clamp(2rem, 4vw, 3.6rem);
+  line-height: 0.92;
+}
+
+.sold-out-overlay span {
+  color: var(--blush);
+  font-size: clamp(0.92rem, 1.5vw, 1.15rem);
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.sold-out-card:hover .sold-out-overlay,
+.sold-out-card:focus-within .sold-out-overlay {
+  background: rgba(47, 60, 25, 0.94);
+  transform: translateY(-2px);
+}
+
+.sold-out-button {
+  background: var(--cream);
 }
 
 .vibe-section {

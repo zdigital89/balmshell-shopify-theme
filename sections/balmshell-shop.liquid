@@ -58,16 +58,16 @@
     {%- if lavender_coconut_product == blank -%}
       {%- assign lavender_coconut_product = all_products['lavender-coconut-soap-limited-edition'] -%}
     {%- endif -%}
-    <article class="product-card lavender-coconut-card">
+    <article class="product-card lavender-coconut-card sold-out-card">
       <a class="product-visual product-photo lavender-coconut-photo" href="{% if lavender_coconut_product != blank %}{{ lavender_coconut_product.url }}{% else %}{{ routes.all_products_collection_url }}{% endif %}">
         <img src="{{ 'lavender-coconut-soap.jpg' | asset_url }}" alt="Lavender Coconut Triple Butter Soap">
-        <div class="ingredient-overlay"><strong>Benefits</strong><p>Lavender brings a calming, spa-soft feel while coconut and triple butters help leave skin feeling soothed, creamy, and touchably soft.</p></div>
+        <div class="sold-out-overlay"><strong>Sold Out</strong><span>Back soon</span></div>
       </a>
       <p class="scent">Week One Soap Challenge</p>
       <h3>Lavender Coconut Triple Butter Soap</h3>
       <p class="seller-badge">Limited August Drop</p>
       <p class="product-note">A calming lavender-coconut bar made for a soft, soothing shower reset with a creamy triple butter lather.</p>
-      <div class="product-footer"><strong>{% if lavender_coconut_product != blank %}{{ lavender_coconut_product.price | money }}{% else %}$9{% endif %}</strong><a class="add-button" href="{% if lavender_coconut_product != blank %}{{ lavender_coconut_product.url }}{% else %}{{ routes.all_products_collection_url }}{% endif %}">Purchase</a></div>
+      <div class="product-footer"><strong>{% if lavender_coconut_product != blank %}{{ lavender_coconut_product.price | money }}{% else %}$9{% endif %}</strong><a class="add-button sold-out-button" href="{% if lavender_coconut_product != blank %}{{ lavender_coconut_product.url }}{% else %}{{ routes.all_products_collection_url }}{% endif %}">Sold Out</a></div>
     </article>
     {%- assign melon_kiss_product = all_products['melon-kiss-lip-gloss'] -%}
     <article class="product-card melon-gloss-card">
