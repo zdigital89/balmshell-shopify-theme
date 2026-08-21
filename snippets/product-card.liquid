@@ -1,6 +1,7 @@
 {%- assign fallback_image = fallback | default: 'oat-coconut.png' -%}
 {%- assign is_coming_soon = false -%}
 {%- assign is_sold_out = false -%}
+{%- assign product_ingredients = '' -%}
 {%- assign display_title = product.title | replace: '—', ' ' | replace: '–', ' ' | replace: ' - ', ' ' | replace: ' | ', ' ' -%}
 {%- case product.handle -%}
   {%- when 'glow-getter-skin-cinnamon-copy' -%}
@@ -28,6 +29,15 @@
   {%- when 'lavender-coconut-soap-limited-edition' -%}
     {%- assign display_title = 'Lavender Coconut Triple Butter Soap' -%}
     {%- assign is_sold_out = true -%}
+  {%- when 'charcoal-tea-tree-triple-butter-soap' -%}
+    {%- assign display_title = 'Charcoal Tea Tree Triple Butter Soap' -%}
+    {%- assign product_ingredients = 'Triple Butter Soap Base, Glycerin Soap Base, Activated Charcoal, Tea Tree Essential Oil, Eucalyptus Essential Oil, Mica for Coloring, Vitamin E.' -%}
+  {%- when 'august-challenge-charcoal-tea-tree-triple-butter-soap' -%}
+    {%- assign display_title = 'Charcoal Tea Tree Triple Butter Soap' -%}
+    {%- assign product_ingredients = 'Triple Butter Soap Base, Glycerin Soap Base, Activated Charcoal, Tea Tree Essential Oil, Eucalyptus Essential Oil, Mica for Coloring, Vitamin E.' -%}
+  {%- when 'charcoal-tea-tree-soap' -%}
+    {%- assign display_title = 'Charcoal Tea Tree Triple Butter Soap' -%}
+    {%- assign product_ingredients = 'Triple Butter Soap Base, Glycerin Soap Base, Activated Charcoal, Tea Tree Essential Oil, Eucalyptus Essential Oil, Mica for Coloring, Vitamin E.' -%}
 {%- endcase -%}
 {%- if product.tags contains 'coming-soon' -%}{%- assign is_coming_soon = true -%}{%- endif -%}
 {%- if product.tags contains 'sold-out' -%}{%- assign is_sold_out = true -%}{%- endif -%}
@@ -41,6 +51,7 @@
     {%- else -%}
       <img src="{{ fallback_image | asset_url }}" alt="{{ product.title | escape }}">
     {%- endif -%}
+    {%- if product_ingredients != blank -%}<div class="ingredient-overlay"><strong>Ingredients</strong><p>{{ product_ingredients }}</p></div>{%- endif -%}
     {%- if is_coming_soon -%}<div class="coming-soon-overlay">Launching soon</div>{%- endif -%}
   </a>
   {%- if display_type != blank -%}<p class="scent">{{ display_type }}</p>{%- endif -%}

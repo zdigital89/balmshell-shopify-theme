@@ -51,6 +51,24 @@
 <section class="section bestsellers" id="bestsellers" aria-labelledby="bestsellers-title">
   <div class="section-heading"><p class="eyebrow">best sellers</p><h2 id="bestsellers-title">balm drops to bag first</h2></div>
   <div class="product-grid">
+    {%- assign charcoal_soap_product = all_products['charcoal-tea-tree-triple-butter-soap'] -%}
+    {%- if charcoal_soap_product == blank -%}
+      {%- assign charcoal_soap_product = all_products['august-challenge-charcoal-tea-tree-triple-butter-soap'] -%}
+    {%- endif -%}
+    {%- if charcoal_soap_product == blank -%}
+      {%- assign charcoal_soap_product = all_products['charcoal-tea-tree-soap'] -%}
+    {%- endif -%}
+    <article class="product-card charcoal-soap-card">
+      <a class="product-visual product-photo charcoal-soap-photo" href="{% if charcoal_soap_product != blank %}{{ charcoal_soap_product.url }}{% else %}{{ routes.all_products_collection_url }}{% endif %}">
+        <img src="{{ 'charcoal-tea-tree-soap.jpg' | asset_url }}" alt="Charcoal Tea Tree Triple Butter Soap">
+        <div class="ingredient-overlay"><strong>Ingredients</strong><p>Triple Butter Soap Base, Glycerin Soap Base, Activated Charcoal, Tea Tree Essential Oil, Eucalyptus Essential Oil, Mica for Coloring, Vitamin E.</p></div>
+      </a>
+      <p class="scent">Week Two Soap Challenge</p>
+      <h3>Charcoal Tea Tree Triple Butter Soap</h3>
+      <p class="seller-badge">Limited August Drop</p>
+      <p class="product-note">Made for acne and blemish-prone skin, this charcoal bar gives a clarifying, cooling reset with tea tree and eucalyptus.</p>
+      <div class="product-footer"><strong>{% if charcoal_soap_product != blank %}{{ charcoal_soap_product.price | money }}{% else %}$9{% endif %}</strong><a class="add-button" href="{% if charcoal_soap_product != blank %}{{ charcoal_soap_product.url }}{% else %}{{ routes.all_products_collection_url }}{% endif %}">Purchase</a></div>
+    </article>
     {%- assign lavender_coconut_product = all_products['lavender-coconut-triple-butter-soap'] -%}
     {%- if lavender_coconut_product == blank -%}
       {%- assign lavender_coconut_product = all_products['august-challenge-lavender-coconut-triple-butter-soap'] -%}
