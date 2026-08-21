@@ -1267,8 +1267,18 @@ body.newsletter-modal-active {
   font-weight: 900;
 }
 
-.site-footer > span:last-child {
+.footer-meta {
   justify-self: end;
+  display: grid;
+  gap: 0.25rem;
+  text-align: right;
+}
+
+.footer-meta small {
+  color: rgba(255, 245, 228, 0.76);
+  font-size: 0.72rem;
+  font-weight: 800;
+  line-height: 1.35;
 }
 
 .footer-socials {
@@ -1436,8 +1446,9 @@ body.newsletter-modal-active {
     text-align: center;
   }
 
-  .site-footer > span:last-child {
+  .footer-meta {
     justify-self: center;
+    text-align: center;
   }
 }
 
