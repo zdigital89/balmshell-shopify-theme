@@ -29,8 +29,9 @@
     {%- assign display_title = 'Lavender Coconut Triple Butter Soap' -%}
     {%- assign is_sold_out = true -%}
 {%- endcase -%}
+{%- if product.tags contains 'coming-soon' -%}{%- assign is_coming_soon = true -%}{%- endif -%}
 {%- if product.tags contains 'sold-out' -%}{%- assign is_sold_out = true -%}{%- endif -%}
-{%- if product.tags contains 'coming-soon' or product.available == false -%}{%- assign is_coming_soon = true -%}{%- endif -%}
+{%- if product.available == false and is_coming_soon == false -%}{%- assign is_sold_out = true -%}{%- endif -%}
 {%- if is_sold_out -%}{%- assign is_coming_soon = false -%}{%- endif -%}
 {%- assign display_type = product.type | replace: 'Glowy Body Moisturizer', '' | replace: 'Handmade Floral Soap', '' | replace: 'Handmade floral soap', '' | replace: 'Homemade Floral Soap', '' | replace: 'homemade floral soap', '' | replace: 'Cinnamon Café Latte Soap Bar', '' | replace: 'Cinnamon Cafe Latte Soap Bar', '' | replace: 'Cinnamon Café Latte Soap', '' | replace: 'Cinnamon Cafe Latte Soap', '' -%}
 <article class="product-card{% if is_coming_soon %} coming-soon-card{% endif %}{% if is_sold_out %} sold-out-card{% endif %}">
@@ -40,17 +41,16 @@
     {%- else -%}
       <img src="{{ fallback_image | asset_url }}" alt="{{ product.title | escape }}">
     {%- endif -%}
-    {%- if is_sold_out -%}<div class="sold-out-overlay"><strong>Sold Out</strong><span>Back soon</span></div>{%- endif -%}
     {%- if is_coming_soon -%}<div class="coming-soon-overlay">Launching soon</div>{%- endif -%}
   </a>
   {%- if display_type != blank -%}<p class="scent">{{ display_type }}</p>{%- endif -%}
   <h3><a href="{{ product.url }}">{{ display_title }}</a></h3>
   <div class="product-footer"><strong>{{ product.price | money }}</strong></div>
   {%- if is_sold_out -%}
-    <a class="add-button product-card-link sold-out-button" href="{{ product.url }}">Sold Out</a>
+    <a class="add-button product-card-link sold-out-button" href="{{ product.url }}">Sold Out For Now</a>
   {%- elsif is_coming_soon == false -%}
     <a class="add-button product-card-link" href="{{ product.url }}">View product</a>
   {%- else -%}
     <div class="launching-soon-box">Lip balms launching soon.</div>
-  {%- endunless -%}
+  {%- endif -%}
 </article>
