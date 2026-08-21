@@ -17,7 +17,7 @@
             <div class="cart-item-copy">
               <h2>{{ item.product.title }}</h2>
               {%- unless item.product.has_only_default_variant -%}<p>{{ item.variant.title }}</p>{%- endunless -%}
-              <p>{{ item.final_line_price | money }}</p>
+              <p>{{ item.final_line_price | money_without_trailing_zeros }}</p>
               <label>
                 <span>Quantity</span>
                 <input class="order-qty" type="number" name="updates[]" value="{{ item.quantity }}" min="0">
@@ -29,7 +29,7 @@
       </div>
       <div class="cart-summary">
         <p class="eyebrow">order total</p>
-        <strong>{{ cart.total_price | money }}</strong>
+        <strong>{{ cart.total_price | money_without_trailing_zeros }}</strong>
         <p>Taxes and shipping are calculated at checkout.</p>
         <button class="button button-secondary" type="submit">Update cart</button>
         <button class="button button-primary" type="submit" name="checkout">Checkout</button>

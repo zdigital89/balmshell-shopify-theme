@@ -21,22 +21,25 @@
   {%- when 'sud-buddies-hanging-hand-soap-for-kids' -%}
     {%- assign display_title = 'Sud Buddies Hanging Hand Soap' -%}
   {%- when 'lavender-coconut-triple-butter-soap' -%}
-    {%- assign display_title = 'Lavender Coconut Triple Butter Soap' -%}
+    {%- assign display_title = 'Lavender Coconut Soap' -%}
     {%- assign is_sold_out = true -%}
   {%- when 'august-challenge-lavender-coconut-triple-butter-soap' -%}
-    {%- assign display_title = 'Lavender Coconut Triple Butter Soap' -%}
+    {%- assign display_title = 'Lavender Coconut Soap' -%}
     {%- assign is_sold_out = true -%}
   {%- when 'lavender-coconut-soap-limited-edition' -%}
-    {%- assign display_title = 'Lavender Coconut Triple Butter Soap' -%}
+    {%- assign display_title = 'Lavender Coconut Soap' -%}
     {%- assign is_sold_out = true -%}
+  {%- when 'midnight-mint-charcoal-soap-limited-edition' -%}
+    {%- assign display_title = 'Midnight Mint Charcoal Soap' -%}
+    {%- assign product_ingredients = 'Triple Butter Soap Base, Glycerin Soap Base, Activated Charcoal, Tea Tree Essential Oil, Eucalyptus Essential Oil, Mica for Coloring, Vitamin E.' -%}
   {%- when 'charcoal-tea-tree-triple-butter-soap' -%}
-    {%- assign display_title = 'Charcoal Tea Tree Triple Butter Soap' -%}
+    {%- assign display_title = 'Midnight Mint Charcoal Soap' -%}
     {%- assign product_ingredients = 'Triple Butter Soap Base, Glycerin Soap Base, Activated Charcoal, Tea Tree Essential Oil, Eucalyptus Essential Oil, Mica for Coloring, Vitamin E.' -%}
   {%- when 'august-challenge-charcoal-tea-tree-triple-butter-soap' -%}
-    {%- assign display_title = 'Charcoal Tea Tree Triple Butter Soap' -%}
+    {%- assign display_title = 'Midnight Mint Charcoal Soap' -%}
     {%- assign product_ingredients = 'Triple Butter Soap Base, Glycerin Soap Base, Activated Charcoal, Tea Tree Essential Oil, Eucalyptus Essential Oil, Mica for Coloring, Vitamin E.' -%}
   {%- when 'charcoal-tea-tree-soap' -%}
-    {%- assign display_title = 'Charcoal Tea Tree Triple Butter Soap' -%}
+    {%- assign display_title = 'Midnight Mint Charcoal Soap' -%}
     {%- assign product_ingredients = 'Triple Butter Soap Base, Glycerin Soap Base, Activated Charcoal, Tea Tree Essential Oil, Eucalyptus Essential Oil, Mica for Coloring, Vitamin E.' -%}
 {%- endcase -%}
 {%- if product.tags contains 'coming-soon' -%}{%- assign is_coming_soon = true -%}{%- endif -%}
@@ -56,7 +59,7 @@
   </a>
   {%- if display_type != blank -%}<p class="scent">{{ display_type }}</p>{%- endif -%}
   <h3><a href="{{ product.url }}">{{ display_title }}</a></h3>
-  <div class="product-footer"><strong>{{ product.price | money }}</strong></div>
+  <div class="product-footer"><strong>{{ product.price | money_without_trailing_zeros }}</strong></div>
   {%- if is_sold_out -%}
     <a class="add-button product-card-link sold-out-button" href="{{ product.url }}">Sold Out For Now</a>
   {%- elsif is_coming_soon == false -%}
