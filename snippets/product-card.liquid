@@ -4,6 +4,9 @@
 {%- assign product_ingredients = '' -%}
 {%- assign display_title = product.title | replace: '—', ' ' | replace: '–', ' ' | replace: ' - ', ' ' | replace: ' | ', ' ' -%}
 {%- case product.handle -%}
+  {%- when 'fal-for-me-pumpkin-spice-soap' -%}
+    {%- assign display_title = 'Fall For Me Pumpkin Spice Soap' -%}
+    {%- assign product_ingredients = 'Triple Butter Soap Base, Pumpkin Spice and Vanilla Essential/Fragrance Oils, Mica for Coloring.' -%}
   {%- when 'glow-getter-skin-cinnamon-copy' -%}
     {%- assign display_title = 'Glow-Getter Skin Soap' -%}
   {%- when 'soft-bloom-skin-rosy-glow-soap-bar-copy' -%}

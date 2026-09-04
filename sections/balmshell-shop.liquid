@@ -51,6 +51,18 @@
 <section class="section bestsellers" id="bestsellers" aria-labelledby="bestsellers-title">
   <div class="section-heading"><p class="eyebrow">best sellers</p><h2 id="bestsellers-title">balm drops to bag first</h2></div>
   <div class="product-grid">
+    {%- assign pumpkin_spice_product = all_products['fal-for-me-pumpkin-spice-soap'] -%}
+    <article class="product-card pumpkin-spice-card">
+      <a class="product-visual product-photo pumpkin-spice-photo" href="{% if pumpkin_spice_product != blank %}{{ pumpkin_spice_product.url }}{% else %}/products/fal-for-me-pumpkin-spice-soap{% endif %}">
+        <img src="{{ 'fall-for-me-pumpkin-spice-soap.jpg' | asset_url }}" alt="Fall For Me Pumpkin Spice Soap">
+        <div class="ingredient-overlay"><strong>Ingredients</strong><p>Triple Butter Soap Base, Pumpkin Spice and Vanilla Essential/Fragrance Oils, Mica for Coloring.</p></div>
+      </a>
+      <p class="scent">Fall Soap</p>
+      <h3>Fall For Me Pumpkin Spice Soap</h3>
+      <p class="seller-badge">New Fall Drop</p>
+      <p class="product-note">A cozy four-layer pumpkin spice and vanilla bar made for warm fall showers, seasonal gifting, and soft-skin reset moments.</p>
+      <div class="product-footer"><strong>{% if pumpkin_spice_product != blank %}{{ pumpkin_spice_product.price | money_without_trailing_zeros }}{% else %}$10{% endif %}</strong><a class="add-button" href="{% if pumpkin_spice_product != blank %}{{ pumpkin_spice_product.url }}{% else %}/products/fal-for-me-pumpkin-spice-soap{% endif %}">Purchase</a></div>
+    </article>
     {%- assign charcoal_soap_product = all_products['midnight-mint-charcoal-soap-limited-edition'] -%}
     {%- if charcoal_soap_product == blank -%}
       {%- assign charcoal_soap_product = all_products['charcoal-tea-tree-triple-butter-soap'] -%}
