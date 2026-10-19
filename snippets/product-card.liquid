@@ -7,7 +7,7 @@
   {%- when 'fal-for-me-pumpkin-spice-soap' -%}
     {%- assign display_title = 'Fall For Me Pumpkin Spice Soap' -%}
     {%- assign product_ingredients = 'Triple Butter Soap Base, Pumpkin Spice and Vanilla Essential/Fragrance Oils, Mica for Coloring.' -%}
-  {%- when 'tallow-cloud-whip' -%}
+  {%- when 'whipped-beef-tallow-face-body-cream' -%}
     {%- assign display_title = 'Tallow Cloud Whip' -%}
     {%- assign product_ingredients = 'Beef Tallow, Jojoba Oil, Squalane Oil, Vitamin E, Tapioca Starch.' -%}
   {%- when 'glow-getter-skin-cinnamon-copy' -%}
@@ -53,7 +53,7 @@
 {%- if product.available == false and is_coming_soon == false -%}{%- assign is_sold_out = true -%}{%- endif -%}
 {%- if is_sold_out -%}{%- assign is_coming_soon = false -%}{%- endif -%}
 {%- assign display_type = product.type | replace: 'Glowy Body Moisturizer', '' | replace: 'Handmade Floral Soap', '' | replace: 'Handmade floral soap', '' | replace: 'Homemade Floral Soap', '' | replace: 'homemade floral soap', '' | replace: 'Cinnamon Café Latte Soap Bar', '' | replace: 'Cinnamon Cafe Latte Soap Bar', '' | replace: 'Cinnamon Café Latte Soap', '' | replace: 'Cinnamon Cafe Latte Soap', '' -%}
-{%- if product.handle == 'tallow-cloud-whip' -%}{%- assign display_type = 'Face and Body Cream' -%}{%- endif -%}
+{%- if product.handle == 'whipped-beef-tallow-face-body-cream' -%}{%- assign display_type = 'Face and Body Cream' -%}{%- endif -%}
 <article class="product-card{% if is_coming_soon %} coming-soon-card{% endif %}{% if is_sold_out %} sold-out-card{% endif %}">
   <a class="product-visual product-photo" href="{{ product.url }}">
     {%- if product.featured_image -%}

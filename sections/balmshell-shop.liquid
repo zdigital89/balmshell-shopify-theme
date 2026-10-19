@@ -51,16 +51,16 @@
 <section class="section bestsellers" id="bestsellers" aria-labelledby="bestsellers-title">
   <div class="section-heading"><p class="eyebrow">best sellers</p><h2 id="bestsellers-title">balm drops to bag first</h2></div>
   <div class="product-grid">
-    {%- assign tallow_cloud_product = all_products['tallow-cloud-whip'] -%}
+    {%- assign tallow_cloud_product = all_products['whipped-beef-tallow-face-body-cream'] -%}
     <article class="product-card tallow-cloud-card">
-      <a class="product-visual product-photo tallow-cloud-photo" href="{% if tallow_cloud_product != blank %}{{ tallow_cloud_product.url }}{% else %}/products/tallow-cloud-whip{% endif %}">
+      <a class="product-visual product-photo tallow-cloud-photo" href="{% if tallow_cloud_product != blank %}{{ tallow_cloud_product.url }}{% else %}/products/whipped-beef-tallow-face-body-cream{% endif %}">
         <img src="{{ 'tallow-cloud-whip.jpg' | asset_url }}" alt="Tallow Cloud Whip fragrance-free whipped face and body cream">
         <div class="ingredient-overlay"><strong>Ingredients</strong><p>Beef Tallow, Jojoba Oil, Squalane Oil, Vitamin E, Tapioca Starch.</p></div>
       </a>
       <p class="scent">Face and Body Cream</p>
       <h3>Tallow Cloud Whip</h3>
       <p class="product-note">A fragrance-free whipped moisturizer for soft, smooth, hydrated skin day and night.</p>
-      <div class="product-footer"><strong>{% if tallow_cloud_product != blank %}{{ tallow_cloud_product.price | money_without_trailing_zeros }}{% else %}Shop now{% endif %}</strong><a class="add-button" href="{% if tallow_cloud_product != blank %}{{ tallow_cloud_product.url }}{% else %}/products/tallow-cloud-whip{% endif %}">Purchase</a></div>
+      <div class="product-footer"><strong>{% if tallow_cloud_product != blank %}{{ tallow_cloud_product.price | money_without_trailing_zeros }}{% else %}Shop now{% endif %}</strong><a class="add-button" href="{% if tallow_cloud_product != blank %}{{ tallow_cloud_product.url }}{% else %}/products/whipped-beef-tallow-face-body-cream{% endif %}">Purchase</a></div>
     </article>
     {%- assign pumpkin_spice_product = all_products['fal-for-me-pumpkin-spice-soap'] -%}
     <article class="product-card pumpkin-spice-card">
