@@ -60,7 +60,11 @@
 <article class="product-card{% if is_coming_soon %} coming-soon-card{% endif %}{% if is_sold_out %} sold-out-card{% endif %}">
   <a class="product-visual product-photo" href="{{ product.url }}">
     {%- if product.featured_image -%}
-      {{ product.featured_image | image_url: width: 900 | image_tag: loading: 'lazy', alt: product.featured_image.alt | escape }}
+      {%- if product.handle == 'pumpkin-snickerdoodle-soaps' -%}
+        <img src="{{ 'pumpkin-snickerdoodle-soap-shop.jpg' | asset_url }}" loading="lazy" alt="Pumpkin Snickerdoodle Soap">
+      {%- else -%}
+        {{ product.featured_image | image_url: width: 900 | image_tag: loading: 'lazy', alt: product.featured_image.alt | escape }}
+      {%- endif -%}
     {%- else -%}
       <img src="{{ fallback_image | asset_url }}" alt="{{ product.title | escape }}">
     {%- endif -%}
