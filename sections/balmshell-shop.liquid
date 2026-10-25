@@ -62,16 +62,16 @@
       <p class="product-note">A fragrance-free whipped cream that helps soften dry skin and leave your face and body smooth, supple, and moisturized day or night.</p>
       <div class="product-footer"><strong>{% if tallow_cloud_product != blank %}{{ tallow_cloud_product.price | money_without_trailing_zeros }}{% else %}Shop now{% endif %}</strong><a class="add-button" href="{% if tallow_cloud_product != blank %}{{ tallow_cloud_product.url }}{% else %}/products/whipped-beef-tallow-face-body-cream{% endif %}">Purchase</a></div>
     </article>
-    {%- assign snickerdoodle_product = all_products['pumpkin-snickerdoodle-soap'] -%}
+    {%- assign snickerdoodle_product = all_products['pumpkin-snickerdoodle-soaps'] -%}
     <article class="product-card pumpkin-snickerdoodle-card">
-      <a class="product-visual product-photo pumpkin-snickerdoodle-photo" href="{% if snickerdoodle_product != blank %}{{ snickerdoodle_product.url }}{% else %}/products/pumpkin-snickerdoodle-soap{% endif %}">
+      <a class="product-visual product-photo pumpkin-snickerdoodle-photo" href="{% if snickerdoodle_product != blank %}{{ snickerdoodle_product.url }}{% else %}/products/pumpkin-snickerdoodle-soaps{% endif %}">
         <img src="{{ 'pumpkin-snickerdoodle-soap.jpg' | asset_url }}" alt="Pumpkin Snickerdoodle Soap with pumpkin and leaf embeds">
         <div class="ingredient-overlay"><strong>Ingredients</strong><p>Triple Butter Soap Base (Mango Butter, Shea Butter, Coconut Butter), Oats, Cinnamon Sugar, Pumpkin Spice Fragrance Oil, Vanilla Fragrance Oil.</p></div>
       </a>
       <p class="scent">Pumpkin Soap</p>
       <h3>Pumpkin Snickerdoodle Soap</h3>
       <p class="product-note">A cozy pumpkin-spice bar with oats and cinnamon sugar for a warm, creamy seasonal cleanse. Sold as a 2-pack for $16 or a 3-bar gift box for $25.</p>
-      <div class="product-footer"><strong>{% if snickerdoodle_product != blank %}{{ snickerdoodle_product.price | money_without_trailing_zeros }}{% else %}$16{% endif %}</strong><a class="add-button" href="{% if snickerdoodle_product != blank %}{{ snickerdoodle_product.url }}{% else %}/products/pumpkin-snickerdoodle-soap{% endif %}">Purchase</a></div>
+      <div class="product-footer"><strong>{% if snickerdoodle_product != blank %}{{ snickerdoodle_product.price | money_without_trailing_zeros }}{% else %}$16{% endif %}</strong><a class="add-button" href="{% if snickerdoodle_product != blank %}{{ snickerdoodle_product.url }}{% else %}/products/pumpkin-snickerdoodle-soaps{% endif %}">Purchase</a></div>
     </article>
     {%- assign pumpkin_spice_product = all_products['fal-for-me-pumpkin-spice-soap'] -%}
     <article class="product-card pumpkin-spice-card">
