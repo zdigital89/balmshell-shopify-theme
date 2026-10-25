@@ -65,12 +65,12 @@
     {%- assign snickerdoodle_product = all_products['pumpkin-snickerdoodle-soaps'] -%}
     <article class="product-card pumpkin-snickerdoodle-card">
       <a class="product-visual product-photo pumpkin-snickerdoodle-photo" href="{% if snickerdoodle_product != blank %}{{ snickerdoodle_product.url }}{% else %}/products/pumpkin-snickerdoodle-soaps{% endif %}">
-        <img src="{{ 'pumpkin-snickerdoodle-soap.jpg' | asset_url }}" alt="Pumpkin Snickerdoodle Soap with pumpkin and leaf embeds">
-        <div class="ingredient-overlay"><strong>Ingredients</strong><p>Triple Butter Soap Base, Oats, Cinnamon Sugar, Pumpkin Spice Fragrance Oil, Vanilla Fragrance Oil.</p></div>
+        <img src="{{ 'pumpkin-snickerdoodle-soap.jpg' | asset_url }}" alt="Pumpkin Snickerdoodle Soap Duo with pumpkin and leaf embeds">
+        <div class="ingredient-overlay"><strong>Ingredients</strong><p>Triple Butter Soap Base (Mango Butter, Shea Butter, Coconut Butter), Oats, Cinnamon, Sugar, Mica Colorants, Pumpkin Spice, Snickerdoodle, and Vanilla Fragrance Oils.</p></div>
       </a>
-      <p class="scent">Pumpkin Soap</p>
-      <h3>Pumpkin Snickerdoodle Soap</h3>
-      <p class="product-note">A cozy pumpkin-spice bar with oats and cinnamon sugar for a warm, creamy seasonal cleanse.</p>
+      <p class="scent">Pumpkin Soap Duo</p>
+      <h3>Pumpkin Snickerdoodle Soap Duo</h3>
+      <p class="product-note">Two handcrafted triple butter soaps with oats and warm pumpkin spice, snickerdoodle, and vanilla fragrance oils for a soft, cozy cleanse.</p>
       <div class="product-footer"><strong>{% if snickerdoodle_product != blank %}{{ snickerdoodle_product.price | money_without_trailing_zeros }}{% else %}$16{% endif %}</strong><a class="add-button" href="{% if snickerdoodle_product != blank %}{{ snickerdoodle_product.url }}{% else %}/products/pumpkin-snickerdoodle-soaps{% endif %}">Purchase</a></div>
     </article>
     {%- assign pumpkin_spice_product = all_products['fal-for-me-pumpkin-spice-soap'] -%}
