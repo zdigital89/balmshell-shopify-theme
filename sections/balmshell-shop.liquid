@@ -104,33 +104,6 @@
       <p class="product-note">Made for acne and blemish-prone skin, this charcoal bar gives a clarifying, cooling reset with tea tree and eucalyptus.</p>
       <div class="product-footer"><strong>{% if charcoal_soap_product != blank %}{{ charcoal_soap_product.price | money_without_trailing_zeros }}{% else %}$9{% endif %}</strong><a class="add-button" href="{% if charcoal_soap_product != blank %}{{ charcoal_soap_product.url }}{% else %}/products/midnight-mint-charcoal-soap-limited-edition{% endif %}">Purchase</a></div>
     </article>
-    {%- assign lavender_coconut_product = all_products['lavender-coconut-triple-butter-soap'] -%}
-    {%- if lavender_coconut_product == blank -%}
-      {%- assign lavender_coconut_product = all_products['august-challenge-lavender-coconut-triple-butter-soap'] -%}
-    {%- endif -%}
-    {%- if lavender_coconut_product == blank -%}
-      {%- assign lavender_coconut_product = all_products['lavender-coconut-soap-limited-edition'] -%}
-    {%- endif -%}
-    <article class="product-card lavender-coconut-card sold-out-card">
-      <a class="product-visual product-photo lavender-coconut-photo" href="{% if lavender_coconut_product != blank %}{{ lavender_coconut_product.url }}{% else %}{{ routes.all_products_collection_url }}{% endif %}">
-        <img src="{{ 'lavender-coconut-soap.jpg' | asset_url }}" alt="Lavender Coconut Soap">
-      </a>
-      <p class="scent">Week One Soap Challenge</p>
-      <h3>Lavender Coconut Soap</h3>
-      <p class="product-note">A calming lavender-coconut bar made for a soft, soothing shower reset with a creamy triple butter lather.</p>
-      <div class="product-footer"><strong>{% if lavender_coconut_product != blank %}{{ lavender_coconut_product.price | money_without_trailing_zeros }}{% else %}$9{% endif %}</strong><a class="add-button sold-out-button" href="{% if lavender_coconut_product != blank %}{{ lavender_coconut_product.url }}{% else %}{{ routes.all_products_collection_url }}{% endif %}">Sold Out For Now</a></div>
-    </article>
-    {%- assign melon_kiss_product = all_products['melon-kiss-lip-gloss'] -%}
-    <article class="product-card melon-gloss-card">
-      <a class="product-visual product-photo melon-gloss-photo" href="/products/melon-kiss-lip-gloss">
-        <img src="{{ 'melon-kiss-hp-image.png' | asset_url }}" alt="Melon Kiss lip gloss">
-      </a>
-      <p class="scent">Watermelon Lip Gloss</p>
-      <h3>Melon Kiss Lip Gloss</h3>
-      <p class="seller-badge">New Drop</p>
-      <p class="product-note">Crystal-packed shimmer with a juicy watermelon flavor, delivering a sheer tint and dazzling gloss that outshines ordinary lip glosses.</p>
-      <div class="product-footer"><strong>{% if melon_kiss_product != blank %}{{ melon_kiss_product.price | money_without_trailing_zeros }}{% else %}Shop now{% endif %}</strong><a class="add-button" href="/products/melon-kiss-lip-gloss">Purchase</a></div>
-    </article>
     <article class="product-card kiddos-card">
       <div class="sud-buds-slider product-visual product-photo" data-sud-slider>
         <div class="sud-buds-track">
@@ -171,11 +144,6 @@
       <a class="product-visual product-photo kiss-balm-photo" href="/products/kiss-my-balm-shimmer-bronzer-lotion-bar"><img src="{{ 'kiss-my-balm-closeup.jpg' | asset_url }}" alt="Close-up of Bronze Kiss My Balm shimmer lotion bar"><div class="ingredient-overlay"><strong>Ingredients</strong><p>Shea Butter, Coconut Oil, Beeswax, Natural Scent, Gold Mica Powder, Bronzer Mica Powder.</p></div></a>
       <p class="scent">Bronze Shimmer Lotion Bar</p><h3>Kiss My Balm Lotion Bar</h3><p class="seller-badge">#1 Seller</p><p class="product-note">Melty moisture with a soft golden glow made for sunny days, bronzed skin, and glossy summer moments.</p>
       <div class="product-footer"><strong>$12</strong><a class="add-button" href="/products/kiss-my-balm-shimmer-bronzer-lotion-bar">Purchase</a></div>
-    </article>
-    <article class="product-card glow-getter-card">
-      <a class="product-visual product-photo glow-getter-photo" href="/products/glow-getter-skin-cinnamon-copy"><img src="{{ 'glow-getter-skin.jpg' | asset_url }}" alt="Cinnamon Cafe Latte Soap Bar"><div class="ingredient-overlay"><strong>Ingredients</strong><p>Triple Butter Soap Base (Mango Butter, Shea Butter, Cocoa Butter), Coffee Grounds, Cinnamon Sugar, Vanilla Essential Oil, Brown Mica Organic Powder.</p></div></a>
-      <p class="scent">Coffee Soap</p><h3>Glow-Getter Skin Soap</h3><p class="product-note">Gently exfoliates with coffee grounds and cinnamon sugar while triple butters leave skin hydrated and polished.</p>
-      <div class="product-footer"><strong>$9</strong><a class="add-button" href="/products/glow-getter-skin-cinnamon-copy">Purchase</a></div>
     </article>
   </div>
 </section>
