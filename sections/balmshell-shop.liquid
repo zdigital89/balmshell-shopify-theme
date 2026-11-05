@@ -158,8 +158,54 @@
     {% endform %}
   </div>
 </section>
+<div class="newsletter-modal cabernet-promo-modal" id="cabernet-promo" role="dialog" aria-modal="true" aria-labelledby="cabernet-promo-title" aria-hidden="true">
+  <div class="newsletter-modal-card cabernet-promo-card">
+    <button class="newsletter-modal-close" type="button" aria-label="Close promotion" data-cabernet-close>&times;</button>
+    <div class="cabernet-promo-media">
+      <img src="{{ 'holiday-cabernet-lip-balm-promo.png' | asset_url }}" alt="Holiday special: buy two soaps and get a free lip balm">
+    </div>
+    <div class="cabernet-promo-copy">
+      <p class="eyebrow">holiday pre-order special</p>
+      <h2 id="cabernet-promo-title">Buy 2 soaps. Get a free Cabernet lip balm.</h2>
+      <p>Add two soaps and the Cabernet Lip Balm to your cart, then use this code at checkout.</p>
+      <p class="promo-code">CABERNETFREE</p>
+      <p class="promo-fineprint">One free Cabernet Lip Balm per order. Offer requires two soaps and the lip balm in your cart. Valid while supplies last.</p>
+      <a class="button button-primary" href="/discount/CABERNETFREE?redirect=/collections/soaps">Shop the offer</a>
+    </div>
+  </div>
+</div>
 <script>
   (function () {
+    var modal = document.querySelector('[data-cabernet-close]');
+    var promo = document.getElementById('cabernet-promo');
+
+    if (modal && promo) {
+      var closePromo = function () {
+        promo.classList.remove('is-open');
+        promo.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('newsletter-modal-active');
+        try { sessionStorage.setItem('balmshell-cabernet-promo-dismissed', 'true'); } catch (error) {}
+      };
+
+      modal.addEventListener('click', closePromo);
+      promo.addEventListener('click', function (event) {
+        if (event.target === promo) closePromo();
+      });
+      document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape' && promo.classList.contains('is-open')) closePromo();
+      });
+
+      var dismissed = false;
+      try { dismissed = sessionStorage.getItem('balmshell-cabernet-promo-dismissed') === 'true'; } catch (error) {}
+      if (!dismissed) {
+        window.setTimeout(function () {
+          promo.classList.add('is-open');
+          promo.setAttribute('aria-hidden', 'false');
+          document.body.classList.add('newsletter-modal-active');
+        }, 700);
+      }
+    }
+
     document.querySelectorAll('[data-sud-slider]').forEach(function (slider) {
       var slides = Array.prototype.slice.call(slider.querySelectorAll('.sud-buds-slide'));
       var previous = slider.querySelector('[data-sud-prev]');
