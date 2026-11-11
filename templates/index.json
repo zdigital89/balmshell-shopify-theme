@@ -53,10 +53,15 @@
         "judge_me_reviews_cards_carousel_AC8WQX"
       ],
       "settings": {}
+    },
+    "glow_lineup": {
+      "type": "balmshell-glow-lineup",
+      "settings": {}
     }
   },
   "order": [
     "main",
-    "1782016275c0e54840"
+    "1782016275c0e54840",
+    "glow_lineup"
   ]
 }
