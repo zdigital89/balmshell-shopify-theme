@@ -4,14 +4,38 @@
     <h1>{{ collection.title | default: 'All Products' }}</h1>
     {%- if collection.description != blank -%}<p>{{ collection.description }}</p>{%- endif -%}
   </div>
-  <div class="product-grid">
-    {%- paginate collection.products by 24 -%}
-      {%- for product in collection.products -%}
-        {% render 'product-card', product: product, fallback: 'oat-coconut.png' %}
-      {%- else -%}
-        <p>No products are in this collection yet.</p>
-      {%- endfor -%}
+  {%- if collection.handle == 'all' -%}
+    {%- assign seasonal_handles = 'mimosa-sunrise-soap,gingerbread-delight-soap,off-the-grid-tallow-soap,pumpkin-snickerdoodle-soaps,fal-for-me-pumpkin-spice-soap' | split: ',' -%}
+    {%- paginate collection.products by 250 -%}
+      {%- assign newest_products = collection.products | sort: 'created_at' | reverse -%}
+      <div class="product-grid">
+        {%- for product in newest_products -%}
+          {%- if seasonal_handles contains product.handle -%}
+            {% render 'product-card', product: product, fallback: 'oat-coconut.png' %}
+          {%- endif -%}
+        {%- endfor -%}
+        {%- for product in newest_products -%}
+          {%- unless seasonal_handles contains product.handle -%}
+            {% render 'product-card', product: product, fallback: 'oat-coconut.png' %}
+          {%- endunless -%}
+        {%- else -%}
+          <p>No products are in this collection yet.</p>
+        {%- endfor -%}
+      </div>
+      {%- if paginate.pages > 1 -%}
+        {{ paginate | default_pagination }}
+      {%- endif -%}
     {%- endpaginate -%}
-  </div>
+  {%- else -%}
+    <div class="product-grid">
+      {%- paginate collection.products by 24 -%}
+        {%- for product in collection.products -%}
+          {% render 'product-card', product: product, fallback: 'oat-coconut.png' %}
+        {%- else -%}
+          <p>No products are in this collection yet.</p>
+        {%- endfor -%}
+      {%- endpaginate -%}
+    </div>
+  {%- endif -%}
 </section>
 {% schema %}{"name":"Main collection","settings":[]}{% endschema %}
