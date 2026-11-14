@@ -1210,46 +1210,15 @@ body.newsletter-modal-active {
   transition: transform 180ms ease;
 }
 
-.newsletter-modal-card.cabernet-promo-card {
+.newsletter-modal-card.newsletter-invite-card {
   width: min(100%, 440px);
-  aspect-ratio: 1;
   max-height: calc(100dvh - 2rem);
-  padding: 0;
   overflow: auto;
+  padding-top: 4rem;
 }
 
-.cabernet-promo-copy {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  min-height: 100%;
-  padding: 3.75rem clamp(1.25rem, 5vw, 2rem) 1.5rem;
-}
-
-.cabernet-promo-card .cabernet-promo-copy h2 {
-  font-size: clamp(1.65rem, 5vw, 2.5rem);
-}
-
-.cabernet-promo-copy > p:not(.eyebrow):not(.promo-code):not(.promo-fineprint) {
-  margin: 1.1rem 0 0;
-  color: #535b34;
-  font-size: 1rem;
-  font-weight: 800;
-  line-height: 1.45;
-}
-
-.cabernet-promo-copy .promo-code {
-  align-self: flex-start;
-  margin-top: 1rem;
-}
-
-.cabernet-promo-copy .promo-fineprint {
-  max-width: 34rem;
-}
-
-.cabernet-promo-copy .button {
-  align-self: flex-start;
-  margin-top: 1rem;
+.newsletter-modal-card.newsletter-invite-card h2 {
+  font-size: clamp(2rem, 6vw, 3rem);
 }
 
 .newsletter-modal.is-open .newsletter-modal-card {
@@ -1560,10 +1529,6 @@ body.newsletter-modal-active {
 }
 
 @media (max-width: 640px) {
-  .cabernet-promo-copy .button {
-    width: 100%;
-  }
-
   .product-card .product-visual,
   .collection-page .product-card .product-visual {
     margin-bottom: 1.65rem;
