@@ -90,7 +90,7 @@
       <p class="scent">Week Three Soap Challenge</p>
       <h3>Fall For Me Pumpkin Spice Soap</h3>
       <p class="product-note">A cozy pumpkin spice and vanilla bar made for a warm fall shower reset with creamy triple butter lather.</p>
-      <div class="product-footer"><strong>{% if pumpkin_spice_product != blank %}{{ pumpkin_spice_product.price | money_without_trailing_zeros }}{% else %}$10{% endif %}</strong><a class="add-button" href="{% if pumpkin_spice_product != blank %}{{ pumpkin_spice_product.url }}{% else %}/products/fal-for-me-pumpkin-spice-soap{% endif %}">Purchase</a></div>
+      <div class="product-footer"><strong>{% if pumpkin_spice_product != blank %}{{ pumpkin_spice_product.price | money_without_trailing_zeros }}{% else %}$10{% endif %}</strong><a class="add-button{% if pumpkin_spice_product.available == false %} sold-out-button{% endif %}" href="{% if pumpkin_spice_product != blank %}{{ pumpkin_spice_product.url }}{% else %}/products/fal-for-me-pumpkin-spice-soap{% endif %}">{% if pumpkin_spice_product.available == false %}Sold out{% else %}Purchase{% endif %}</a></div>
     </article>
     {%- assign charcoal_soap_product = all_products['midnight-mint-charcoal-soap-limited-edition'] -%}
     {%- if charcoal_soap_product == blank -%}
