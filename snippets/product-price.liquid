@@ -4,7 +4,7 @@
 {%- if og_sale_active == 'true' and og_handles contains product.handle -%}
   <span class="visually-hidden">Regular price</span><s>{{ price_item.price | money_without_trailing_zeros }}</s>
   <span class="visually-hidden">Sale price</span>{{ price_item.price | minus: 300 | money_without_trailing_zeros }}
-  <small class="sale-price-note">Automatic discount at checkout · Ends Nov 25</small>
+  <small class="sale-price-note">Automatic discount at checkout</small>
 {%- else -%}
   {{ price_item.price | money_without_trailing_zeros }}
 {%- endif -%}

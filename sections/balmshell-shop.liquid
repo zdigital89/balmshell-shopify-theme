@@ -172,13 +172,15 @@
   <div class="newsletter-modal-card newsletter-invite-card">
     <button class="newsletter-modal-close" type="button" aria-label="Close popup" data-newsletter-close>&times;</button>
     {%- if og_sale_active == 'true' -%}
-      <p class="eyebrow">Black Friday OG soap sale</p>
-      <h2 id="newsletter-invite-title">Your OG favorites. $6 each.</h2>
-      <p>Glow-Getter Cinnamon Café Latte Soap and Soft Bloom Rosy Glow Soap.</p>
+      <h2 id="newsletter-invite-title">Balmshell Weekly Sale</h2>
+      <div class="weekly-sale-photos">
+        <img src="{{ 'glow-getter-skin.jpg' | asset_url }}" alt="Glow-Getter Cinnamon Café Latte Soap">
+        <img src="{{ 'soft-bloom-skin.jpg' | asset_url }}" alt="Soft Bloom Rosy Glow Soap">
+      </div>
       <p class="black-friday-price"><s>$9</s> $6 each</p>
-      <p>$3 off each bar automatically at checkout. Ends November 25 at 11:59 p.m. Mountain Time.</p>
-      <p>Free local delivery within 30 miles of Castle Rock, CO 80104. No minimum. Select Local delivery at checkout when eligible.</p>
-      <a class="button button-primary" href="{{ routes.all_products_collection_url }}" data-newsletter-signup>Shop the OG sale</a>
+      <p>$3 off each bar automatically at checkout.</p>
+      <p>Free shipping available for Colorado locals. Use promo code <strong>COLOCAL</strong>. Must arrange pickup or drop-off.</p>
+      <a class="button button-primary" href="{{ routes.all_products_collection_url }}" data-newsletter-signup>Shop the sale</a>
     {%- else -%}
       <h2 id="newsletter-invite-title">Join the balm drop list.</h2>
       <p>Get emails about new Balmshell drops and subscriber offers.</p>
@@ -191,7 +193,7 @@
     var invite = document.getElementById('newsletter-invite');
     var closeButton = invite.querySelector('[data-newsletter-close]');
     var signupLink = invite.querySelector('[data-newsletter-signup]');
-    var storageKey = '{% if og_sale_active == 'true' %}balmshell-og-black-friday-2026-dismissed{% else %}balmshell-newsletter-invite-dismissed{% endif %}';
+    var storageKey = '{% if og_sale_active == 'true' %}balmshell-weekly-sale-2026-dismissed{% else %}balmshell-newsletter-invite-dismissed{% endif %}';
     var previousFocus;
 
     function closeInvite() {
