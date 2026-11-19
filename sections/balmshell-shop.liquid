@@ -122,10 +122,11 @@
       <p class="scent">Calendula Soap</p><h3>Petal Me Softly Soap</h3><p class="product-note">Part of our Calendula Remedy Collection, this creamy soap gives skin a soft, sunny reset.</p>
       <div class="product-footer"><strong>$9</strong><a class="add-button" href="/products/petal-me-softly-soap-part-of-our-calendula-collection">Purchase</a></div>
     </article>
+    {%- assign bloom_product = all_products['soft-bloom-skin-rosy-glow-soap-bar-copy'] -%}
     <article class="product-card soft-bloom-card">
       <a class="product-visual product-photo soft-bloom-photo" href="/products/soft-bloom-skin-rosy-glow-soap-bar-copy"><img src="{{ 'soft-bloom-skin.jpg' | asset_url }}" alt="Rosy Glow Soap Bar"><div class="ingredient-overlay"><strong>Ingredients</strong><p>Triple Butter Soap Base, Blossom Blossom Essential Oil, Rose Mica Organic Powder.</p></div></a>
       <p class="scent">Rosy Glow Soap Bar</p><h3>Soft Bloom Skin Soap Bar</h3><p class="product-note">Creamy triple butter soap gently cleanses sensitive skin with a soft floral touch.</p>
-      <div class="product-footer"><strong>$9</strong><a class="add-button" href="/products/soft-bloom-skin-rosy-glow-soap-bar-copy">Purchase</a></div>
+      <div class="product-footer"><strong>{% render 'product-price', product: bloom_product %}</strong><a class="add-button" href="/products/soft-bloom-skin-rosy-glow-soap-bar-copy">Purchase</a></div>
     </article>
     <article class="product-card kiss-balm-card">
       <a class="product-visual product-photo kiss-balm-photo" href="/products/kiss-my-balm-shimmer-bronzer-lotion-bar"><img src="{{ 'kiss-my-balm-closeup.jpg' | asset_url }}" alt="Close-up of Bronze Kiss My Balm shimmer lotion bar"><div class="ingredient-overlay"><strong>Ingredients</strong><p>Shea Butter, Coconut Oil, Beeswax, Natural Scent, Gold Mica Powder, Bronzer Mica Powder.</p></div></a>
@@ -166,12 +167,23 @@
     {% endform %}
   </div>
 </section>
+{%- capture og_sale_active -%}{%- render 'og-sale-active' -%}{%- endcapture -%}
 <div class="newsletter-modal" id="newsletter-invite" role="dialog" aria-modal="true" aria-labelledby="newsletter-invite-title" aria-hidden="true" inert>
   <div class="newsletter-modal-card newsletter-invite-card">
-    <button class="newsletter-modal-close" type="button" aria-label="Close newsletter popup" data-newsletter-close>&times;</button>
-    <h2 id="newsletter-invite-title">Join the balm drop list.</h2>
-    <p>Get emails about new Balmshell drops and subscriber offers.</p>
-    <a class="button button-primary" href="#social" data-newsletter-signup>Subscribe to the newsletter</a>
+    <button class="newsletter-modal-close" type="button" aria-label="Close popup" data-newsletter-close>&times;</button>
+    {%- if og_sale_active == 'true' -%}
+      <p class="eyebrow">Black Friday OG soap sale</p>
+      <h2 id="newsletter-invite-title">Your OG favorites. $6 each.</h2>
+      <p>Glow-Getter Cinnamon Café Latte Soap and Soft Bloom Rosy Glow Soap.</p>
+      <p class="black-friday-price"><s>$9</s> $6 each</p>
+      <p>$3 off each bar automatically at checkout. Ends November 25 at 11:59 p.m. Mountain Time.</p>
+      <p>Free local delivery within 30 miles of Castle Rock, CO 80104. No minimum. Select Local delivery at checkout when eligible.</p>
+      <a class="button button-primary" href="{{ routes.all_products_collection_url }}" data-newsletter-signup>Shop the OG sale</a>
+    {%- else -%}
+      <h2 id="newsletter-invite-title">Join the balm drop list.</h2>
+      <p>Get emails about new Balmshell drops and subscriber offers.</p>
+      <a class="button button-primary" href="#social" data-newsletter-signup>Subscribe to the newsletter</a>
+    {%- endif -%}
   </div>
 </div>
 <script>
@@ -179,7 +191,7 @@
     var invite = document.getElementById('newsletter-invite');
     var closeButton = invite.querySelector('[data-newsletter-close]');
     var signupLink = invite.querySelector('[data-newsletter-signup]');
-    var storageKey = 'balmshell-newsletter-invite-dismissed';
+    var storageKey = '{% if og_sale_active == 'true' %}balmshell-og-black-friday-2026-dismissed{% else %}balmshell-newsletter-invite-dismissed{% endif %}';
     var previousFocus;
 
     function closeInvite() {
@@ -194,7 +206,9 @@
     closeButton.addEventListener('click', closeInvite);
     signupLink.addEventListener('click', function () {
       closeInvite();
-      document.querySelector('.newsletter-form input[autocomplete="given-name"]').focus({ preventScroll: true });
+      if (signupLink.getAttribute('href') === '#social') {
+        document.querySelector('.newsletter-form input[autocomplete="given-name"]').focus({ preventScroll: true });
+      }
     });
     invite.addEventListener('click', function (event) {
       if (event.target === invite) closeInvite();

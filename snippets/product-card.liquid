@@ -73,7 +73,7 @@
   </a>
   {%- if display_type != blank -%}<p class="scent">{{ display_type }}</p>{%- endif -%}
   <h3><a href="{{ product.url }}">{{ display_title }}</a></h3>
-  <div class="product-footer"><strong>{{ product.price | money_without_trailing_zeros }}</strong></div>
+  <div class="product-footer"><strong>{% render 'product-price', product: product %}</strong></div>
   {%- if is_sold_out -%}
     <a class="add-button product-card-link sold-out-button" href="{{ product.url }}">Sold Out For Now</a>
   {%- elsif is_coming_soon == false -%}

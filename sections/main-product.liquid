@@ -18,7 +18,7 @@
       <p class="eyebrow">{{ product.type | default: 'Balmshell Beauty' }}</p>
       <h1>{{ product.title }}</h1>
       <div class="product-description">{{ product.description }}</div>
-      <p class="product-price" id="ProductPrice-{{ section.id }}">{{ current_variant.price | money_without_trailing_zeros }}</p>
+      <p class="product-price" id="ProductPrice-{{ section.id }}">{% render 'product-price', product: product, variant: current_variant %}</p>
       {%- form 'product', product, class: 'product-order-form' -%}
         {%- unless product.has_only_default_variant -%}
           <label class="order-label" for="product-variant-{{ product.id }}">Style</label>

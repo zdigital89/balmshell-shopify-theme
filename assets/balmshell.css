@@ -2115,3 +2115,22 @@ body.newsletter-modal-active {
     min-height: 0;
   }
 }
+
+/* Black Friday OG soap promotion */
+.sale-price-note {
+  display: block;
+  margin-top: 0.4rem;
+  font: 700 0.8rem/1.4 Inter, sans-serif;
+  color: var(--olive-soft);
+}
+.product-footer s,
+.product-price s,
+.black-friday-price s {
+  margin-right: 0.5rem;
+  color: var(--olive-soft);
+  font-size: 0.8em;
+}
+.black-friday-price {
+  font: 700 2rem/1.2 Fredoka, sans-serif;
+  color: var(--olive);
+}
