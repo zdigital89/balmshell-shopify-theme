@@ -1,10 +1,27 @@
 {%- capture og_sale_active -%}{%- render 'og-sale-active' -%}{%- endcapture -%}
+{%- capture weekend_sale_active -%}{%- render 'weekend-sale-active' -%}{%- endcapture -%}
 {%- assign price_item = variant | default: product -%}
 {%- assign og_handles = 'glow-getter-skin-cinnamon-copy,soft-bloom-skin-rosy-glow-soap-bar-copy' | split: ',' -%}
-{%- if og_sale_active == 'true' and og_handles contains product.handle -%}
+{%- assign weekend_reduction = 0 -%}
+{%- if weekend_sale_active == 'true' -%}
+  {%- if product.handle == 'whipped-beef-tallow-face-body-cream' -%}
+    {%- assign weekend_reduction = 200 -%}
+  {%- elsif variant.id == 68165732761705 -%}
+    {%- assign weekend_reduction = 400 -%}
+  {%- endif -%}
+{%- endif -%}
+{%- if weekend_reduction > 0 -%}
+  <span class="visually-hidden">Regular price</span><s>{{ price_item.price | money_without_trailing_zeros }}</s>
+  <span class="visually-hidden">Sale price</span>{{ price_item.price | minus: weekend_reduction | at_least: 0 | money_without_trailing_zeros }}
+  <small class="sale-price-note">Automatic discount at checkout</small>
+{%- elsif og_sale_active == 'true' and og_handles contains product.handle -%}
   <span class="visually-hidden">Regular price</span><s>{{ price_item.price | money_without_trailing_zeros }}</s>
   <span class="visually-hidden">Sale price</span>{{ price_item.price | minus: 300 | money_without_trailing_zeros }}
   <small class="sale-price-note">Automatic discount at checkout</small>
 {%- else -%}
   {{ price_item.price | money_without_trailing_zeros }}
+{%- endif -%}
+
+{%- if weekend_sale_active == 'true' and product.handle == 'sassy-lavender-soap' and variant == blank -%}
+  <small class="sale-price-note">Lavender Self-Care Duo <s>$26</s> $22 at checkout</small>
 {%- endif -%}

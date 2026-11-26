@@ -30,6 +30,7 @@
                 data-image="{% if variant_image %}{{ variant_image | image_url: width: 1200 }}{% endif %}"
                 data-image-alt="{{ variant_image.alt | default: product.title | escape }}"
                 data-price="{{ variant.price | money_without_trailing_zeros }}"
+                data-price-html="{% capture variant_price_html %}{% render 'product-price', product: product, variant: variant %}{% endcapture %}{{ variant_price_html | strip | escape }}"
                 {% if variant == current_variant %}selected{% endif %}
                 {% unless variant.available %}disabled{% endunless %}
               >
@@ -58,8 +59,8 @@
       select.addEventListener('change', function () {
         var option = select.options[select.selectedIndex];
 
-        if (price && option.dataset.price) {
-          price.textContent = option.dataset.price;
+        if (price && option.dataset.priceHtml) {
+          price.innerHTML = option.dataset.priceHtml;
         }
 
         if (image && option.dataset.image) {

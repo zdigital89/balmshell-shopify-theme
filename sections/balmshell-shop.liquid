@@ -68,7 +68,7 @@
       <p class="scent">Face and Body Cream</p>
       <h3>Tallow Cloud Whip</h3>
       <p class="product-note">A fragrance-free whipped cream that helps soften dry skin and leave your face and body smooth, supple, and moisturized day or night.</p>
-      <div class="product-footer"><strong>{% if tallow_cloud_product != blank %}{{ tallow_cloud_product.price | money_without_trailing_zeros }}{% else %}Shop now{% endif %}</strong><a class="add-button" href="{% if tallow_cloud_product != blank %}{{ tallow_cloud_product.url }}{% else %}/products/whipped-beef-tallow-face-body-cream{% endif %}">Purchase</a></div>
+      <div class="product-footer"><strong>{% if tallow_cloud_product != blank %}{% render 'product-price', product: tallow_cloud_product %}{% else %}Shop now{% endif %}</strong><a class="add-button" href="{% if tallow_cloud_product != blank %}{{ tallow_cloud_product.url }}{% else %}/products/whipped-beef-tallow-face-body-cream{% endif %}">Purchase</a></div>
     </article>
     {%- assign snickerdoodle_product = all_products['pumpkin-snickerdoodle-soaps'] -%}
     <article class="product-card pumpkin-snickerdoodle-card">
@@ -168,10 +168,24 @@
   </div>
 </section>
 {%- capture og_sale_active -%}{%- render 'og-sale-active' -%}{%- endcapture -%}
+{%- capture weekend_sale_active -%}{%- render 'weekend-sale-active' -%}{%- endcapture -%}
+{%- assign lavender_soap = all_products['sassy-lavender-soap'] -%}
+{%- assign lavender_whip = all_products['tallow-lavender-coconut-body-whip'] -%}
 <div class="newsletter-modal" id="newsletter-invite" role="dialog" aria-modal="true" aria-labelledby="newsletter-invite-title" aria-hidden="true" inert>
   <div class="newsletter-modal-card newsletter-invite-card">
     <button class="newsletter-modal-close" type="button" aria-label="Close popup" data-newsletter-close>&times;</button>
-    {%- if og_sale_active == 'true' -%}
+    {%- if weekend_sale_active == 'true' -%}
+      <h2 id="newsletter-invite-title">Lavender just got sassier.</h2>
+      <div class="weekly-sale-photos">
+        {{ lavender_soap.featured_image | image_url: width: 500, format: 'jpg' | image_tag: alt: 'Sassy Lavender Soap' }}
+        {{ lavender_whip.featured_image | image_url: width: 500, format: 'jpg' | image_tag: alt: 'Lavender Coconut Tallow Body Whip' }}
+      </div>
+      <p>Our bestselling Sassy Lavender Soap + Lavender Coconut Tallow Body Whip.</p>
+      <p class="black-friday-price"><s>$26</s> $22 for the duo</p>
+      <p>Tallow Cloud Whip <s>$20</s> <strong>$18</strong> · Lavender Coconut Body Whip <strong>$18</strong> on its own.</p>
+      <p>Sale discounts apply automatically at checkout.</p>
+      <a class="button button-primary" href="/products/sassy-lavender-soap?variant=68165732761705" data-newsletter-signup>Shop the lavender duo</a>
+    {%- elsif og_sale_active == 'true' -%}
       <h2 id="newsletter-invite-title">Balmshell Weekly Sale</h2>
       <div class="weekly-sale-photos">
         <img src="{{ 'glow-getter-skin.jpg' | asset_url }}" alt="Glow-Getter Cinnamon Café Latte Soap">
@@ -193,7 +207,7 @@
     var invite = document.getElementById('newsletter-invite');
     var closeButton = invite.querySelector('[data-newsletter-close]');
     var signupLink = invite.querySelector('[data-newsletter-signup]');
-    var storageKey = '{% if og_sale_active == 'true' %}balmshell-weekly-sale-2026-dismissed{% else %}balmshell-newsletter-invite-dismissed{% endif %}';
+    var storageKey = '{% if weekend_sale_active == 'true' %}balmshell-lavender-weekend-2026-dismissed{% elsif og_sale_active == 'true' %}balmshell-weekly-sale-2026-dismissed{% else %}balmshell-newsletter-invite-dismissed{% endif %}';
     var previousFocus;
 
     function closeInvite() {

@@ -1,0 +1,4 @@
+{%- assign sale_now = 'now' | date: '%s' | plus: 0 -%}
+{%- assign sale_start = '2026-11-25T23:28:00-07:00' | date: '%s' | plus: 0 -%}
+{%- assign sale_end = '2026-11-29T23:59:00-07:00' | date: '%s' | plus: 0 -%}
+{%- if sale_now >= sale_start and sale_now < sale_end -%}true{%- endif -%}
